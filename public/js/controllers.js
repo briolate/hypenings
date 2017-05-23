@@ -3,6 +3,7 @@ var app = angular.module("ourApp");
 app.controller("myController", function ($scope, eventService) {
 	$scope.formItem = {};
 	$scope.searchForm = {};
+	$scope.flyers = [];
 
 	$scope.addEvent = function(item) {
 		eventService.addEvent(item).then(function() {
@@ -30,4 +31,5 @@ app.controller("myController", function ($scope, eventService) {
 			}
 		}
 	}
+
 });
