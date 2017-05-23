@@ -1,6 +1,9 @@
 #map{
-  height: 200px;
-  width: 200px;
+  /*float: right;
+  margin-right: 10px;*/
+  height: 50vh;
+  width: 45vw;
+
 }
 /* Links */
 a,

@@ -6,7 +6,7 @@ app.config(function($routeProvider) {
     })
     .when('/view2', {
       templateUrl: 'views/view2.html',
-      controller: 'mapController'
+      controller: 'myController'
 
     }).when('/view3', {
       templateUrl: 'views/view3.html',
