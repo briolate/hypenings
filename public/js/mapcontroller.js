@@ -54,9 +54,18 @@ function getLoc() {
             lng: position.coords.longitude
           };
           console.log(pos);
-          var maker = new google.maps.Marker({
+          var contentString='<img src="https://upload.wikimedia.org/wikipedia/en/8/88/Opera_singer.jpg">'
+          var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+          var marker = new google.maps.Marker({
            position:{lat:42.3365, lng:-83.0488},
-          map:map
+          map:map,
+          title: 'Operaaaaaa!'
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+          // infoWindow.setContent(marker.title);
         });
 
         }, function() {
