@@ -1,0 +1,130 @@
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+  transition: 0.2s;
+  -moz-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+}
+
+a:focus,
+a:hover {
+  opacity: .7;
+  text-decoration: none;
+}
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  background-image: url('../happenings/main-page/img/detroit1.JPG');
+  background-image: url('img/detroit1.JPG');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Padding for spacing */
+.inner {
+  padding: 30px;
+}
+
+.cover-heading {
+  padding-bottom: 20px;
+  padding-top: 60px;
+}
+
+/*
+ * Header
+ */
+
+.masthead-nav > li,
+.masthead-brand > li {
+  display: inline-block;
+}
+.masthead-nav > li + li,
+.masthead-brand > li + li {
+  margin-left: 20px;
+}
+.masthead-nav > li > a,
+.masthead-brand > li > a {
+  padding-right: 0;
+  padding-left: 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus,
+.masthead-brand > li > a:hover,
+.masthead-brand > li > a:focus {
+  background-color: transparent;
+  color:#fff;
+}
+
+.masthead a {
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .masthead-brand {
+    float: left;
+  }
+  .masthead-nav {
+    float: right;
+  }
+}
+
+/*
+ * Cover
+ */
+
+.cover {
+  padding: 0 20px;
+}
+
+.cover .btn-lg {
+  padding: 15px 50px;
+  font-weight: bold;
+}
+
+.cover-heading {
+  display: inline-block;
+  font-family: 'Audiowide', cursive;
+  font-size: 60px;
+  transform: rotate(-6deg);
+  -ms-transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  -webkit-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+}
+
+/*
+ * Footer
+ */
+
+.mastfoot {
+  color: #999;
+  color: rgba(255,255,255,.5);
+}
