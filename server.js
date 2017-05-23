@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 var pool = new pg.Pool({
     user: "postgres",
-    password: "Zambia",
+    password: "quentin",
     host: "localhost",
     port: 5432,
     database: "postgres",
@@ -19,13 +19,13 @@ var pool = new pg.Pool({
 function errorCallback(res) {
     return function(err) {
         console.log(err);
-        res.status(500); 
+        res.status(500);
         res.send("ERROR!");
     }
 }
 
 app.post('/events', function(req, res) {
-    var event = req.body; 
+    var event = req.body;
     var sql = "INSERT INTO Events(userName, eventName, date, description, hood) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text)";
     var values = [event.user, event.eventName, event.date, event.description, event.hood];
 
@@ -48,7 +48,7 @@ app.get('/events', function(req, res) {
 var port = process.env.PORT || 5000;
 app.listen(port, function () {
     console.log('JSON Server is running on ' + port);
-     
+
 });
 
 /*
