@@ -7,7 +7,7 @@
 
 
 <h2>Search Events by Neighborhood</h2>
-<div class="col-xs-4" ng-controller="myController">
+<div class="col-xs-6" ng-controller="myController">
 	<form ng-submit="searchHood(hood)" class="well">
 		<div class="form-group">
 			<label for="event-hood">Select Nieghborhood:</label>
@@ -23,9 +23,34 @@
 
 
 
-	<div ng-repeat="event in hoodResults">
+	<div class="row">
+	  <div class="col-sm-6 col-md-4">
+
+			<div class="thumbnail" ng-repeat="event in hoodResults">
+	      <!-- <img src="..." alt="..."> -->
+				<a href="#">
+	      <div class="caption">
+	        <h3>{{event.eventname}}</h3>
+					<h4>{{event.username}}</h4><br />
+	        <p>
+					{{event.date}} <br />
+					{{event.description}} <br /></p>
+	        <p><small class="text-muted">Event expires in (x) hours.</small></p>
+	      </div>
+				</a>
+	    </div>
+
+	</div>
+</div>
+
+
+
+
+
+
+	<!-- <div id="flyerBlock" ng-repeat="event in hoodResults">
 		<div class="flyer">
-			<img src="img/flyer1.JPG" class="img-responsive">	
+			<img src="img/flyer1.JPG" class="img-responsive">
 			<span><h3 class="flyer-text">{{event.eventname}} <br />
 			{{event.username}} <br />
 			{{event.date}} <br />
@@ -33,6 +58,6 @@
 			</h3>
 		</div>
 		<hr>
-	</div>
+	</div> -->
 
 </div>
