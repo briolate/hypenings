@@ -1,3 +1,11 @@
+<ng-map   default-style="true" center="current-location" zoom="17">
+    <marker position="current-location"> </marker>
+  </ng-map>
+
+
+
+
+
  <h2>Search Events by Neighborhood</h2>
         <div class="col-xs-4" ng-controller="myController">
             <form ng-submit="searchHood(hood)" class="well">
@@ -11,6 +19,8 @@
                 </select>
             </div>
             </form>
+
+
 
             <ul>
                 <div ng-repeat="event in hoodResults">
