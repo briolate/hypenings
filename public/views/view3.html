@@ -1,1 +1,36 @@
-<h1>form goes on this page</h1>
+ <div class="row">
+        <div>
+            <div class="col-xs-5" class="container" ng-controller="myController">
+                <h2>Add Event</h2>
+
+                <form ng-submit="addEvent(formItem)" class="well">
+                    <div class="form-group">
+                        <label for="event-user">User Name</label>
+                        <input type="text" class="form-control" id="event-user" required ng-model="formItem.user">
+                    </div>
+                    <div class="form-group">
+                        <label for="event-name">Event Name</label>
+                        <input type="text" class="form-control" id="event-name" required ng-model="formItem.eventName">
+                    </div>
+                    <div class="form-group">
+                        <label for="event-date">Date</label>
+                        <input type="text" class="form-control" id="event-date" required ng-model="formItem.date">
+                    </div>
+                    <div class="form-group">
+                        <label for="event-description">Description</label>
+                        <textarea rows="5" type="in" class="form-control" id="event-description" required ng-model="formItem.description">
+                        </textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-hood">Select Nieghborhood:</label>
+                        <select class="form-control" id="event-hood" ng-model="formItem.hood">
+                            <option>Downtown</option>
+                            <option>Cork Town</option>
+                            <option>Mid Town</option>
+                            <option>West Village</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Event</button>
+                </form>
+            </div>
+        </div>

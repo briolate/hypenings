@@ -1,4 +1,4 @@
- var app = angular.module("myApp");
+ var app = angular.module("ourApp");
  app.service("eventService", function($http) {
 
     this.addEvent = function(item) {

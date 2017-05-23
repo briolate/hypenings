@@ -1,4 +1,4 @@
-var app = angular.module("myApp");
+var app = angular.module("ourApp");
 
 app.controller("myController", function ($scope, eventService) {
 	$scope.formItem = {};

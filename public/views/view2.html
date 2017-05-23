@@ -1,1 +1,24 @@
-<h1>search and such</h1>
+ <h2>Search Events by Neighborhood</h2>
+        <div class="col-xs-4" ng-controller="myController">
+            <form ng-submit="searchHood(hood)" class="well">
+            <div class="form-group">
+                <label for="event-hood">Select Nieghborhood:</label>
+                <select ng-change="searchHood()" class="form-control" id="event-hood" ng-model="searchForm.hood">
+                    <option>Downtown</option>
+                    <option>Cork Town</option>
+                    <option>Mid Town</option>
+                    <option>West Village</option>
+                </select>
+            </div>
+            </form>
+
+            <ul>
+                <div ng-repeat="event in hoodResults">
+                    <li><h3>{{event.eventname}}</h3></li>
+                    <li>{{event.username}}</li>
+                    <li>{{event.date}}</li>
+                    <li>{{event.description}}</li>
+                    <hr>
+                </div>
+            </ul>
+        </div>
