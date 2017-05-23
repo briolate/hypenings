@@ -25,9 +25,10 @@ function errorCallback(res) {
 }
 
 app.post('/events', function(req, res) {
+
     var event = req.body;
-    var sql = "INSERT INTO Events(userName, eventName, date, description, hood) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text)";
-    var values = [event.user, event.eventName, event.date, event.description, event.hood];
+    var sql = "INSERT INTO Events(userName, eventName, date, description, hood, pic) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::text)";
+    var values = [event.user, event.eventName, event.date, event.description, event.hood, event.pic];
 
     pool.query(sql, values).then(function() {
         res.status(201);
@@ -59,6 +60,10 @@ userName VARCHAR(40),
 eventName VARCHAR(40),
 date VARCHAR(40),
 description VARCHAR(200),
-hood VARCHAR(40)
+hood VARCHAR(40),
+pic VARCHAR(40),
+long INT,
+lat INT
 );
+
 */
