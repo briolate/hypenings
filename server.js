@@ -7,7 +7,14 @@ const app = express();
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-var pool = require("./pg-connection-pool");
+var pool = new pg.Pool({
+    user: "postgres",
+    password: "EBriolat1",
+    host: "localhost",
+    port: 5432,
+    database: "postgres",
+    ssl: false
+});
 
 function errorCallback(res) {
     return function(err) {
@@ -20,8 +27,8 @@ function errorCallback(res) {
 app.post('/events', function(req, res) {
 
     var event = req.body;
-    var sql = "INSERT INTO events(userName, eventName, date, description, hood, lat, lng) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::decimal, $7::decimal)";
-    var values = [event.user, event.eventName, event.date, event.description, event.hood, event.lat, event.long];
+    var sql = "INSERT INTO Events(userName, eventName, date, description, hood, pic) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::text)";
+    var values = [event.user, event.eventName, event.date, event.description, event.hood, event.pic];
 
     pool.query(sql, values).then(function() {
         res.status(201);
