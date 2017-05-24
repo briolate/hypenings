@@ -29,8 +29,8 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-image: url('../happenings/main-page/img/detroit1.JPG');
   background-image: url('img/detroit1.JPG');
+  background-image: image-url('img/detroit1.JPG');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
