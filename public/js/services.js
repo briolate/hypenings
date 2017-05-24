@@ -34,7 +34,7 @@
         var eventArr = [];
         var promise = $http({
           method: 'GET',
-          url: '/localevents?lat=' + lat + '%lng=' + lng
+          url: '/localevents?lat=' + lat + '&lng=' + lng
       }).then(function successCallback(response) {
         eventArr = response.data;
         return eventArr;
@@ -44,6 +44,6 @@
       return promise;
     };
 
-    
+
 
 });
