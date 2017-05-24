@@ -49,10 +49,16 @@ html {
 }
 
 body {
+<<<<<<< HEAD
   background-color: #5CDB95;
   margin: 0 0 190px;
   /*background-image: url('../happenings/main-page/img/detroit1.JPG');
+=======
+  height: 100%;
+>>>>>>> 0ed5e6a419be284904e730b1d01a5950df0c1360
   background-image: url('img/detroit1.JPG');
+  background-image: image-url('img/detroit1.JPG');
+  background-color: black;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;*/
