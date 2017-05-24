@@ -22,8 +22,9 @@ app.controller("myController", function ($scope, eventService) {
 	}
 
 	function getEvents () {
-		eventService.getAllEvents().then(function(eventArr) {
+		eventService.getAllEvents($scope.lat, $scope.long).then(function(eventArr) {
 			$scope.events = eventArr;
+
 		});
 	}
 	getEvents();
@@ -39,7 +40,7 @@ app.controller("myController", function ($scope, eventService) {
 			}
 		}
 	}
-
+	getLocation();
 	function getLocation () {
 		eventService.getAllEvents().then(function(eventArr) {
 
@@ -51,8 +52,8 @@ app.controller("myController", function ($scope, eventService) {
 					};
 
 					console.log(pos);
-					$scope.lat=pos.lat;
-					$scope.long=pos.lng;
+					$scope.lat = pos.lat;
+					$scope.long = pos.lng;
 
 				}, function() {
 					handleLocationError(true, infoWindow, map.getCenter());
