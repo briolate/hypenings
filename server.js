@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 var pool = new pg.Pool({
     user: "postgres",
-    password: "quentin",
+    password: "Zambia",
     host: "localhost",
     port: 5432,
     database: "postgres",
