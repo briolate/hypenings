@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 var pool = new pg.Pool({
     user: "postgres",
-    password: "2o7t9j2sql",
+    password: "quentin",
     host: "localhost",
     port: 5432,
     database: "postgres",
@@ -29,7 +29,6 @@ app.post('/events', function(req, res) {
     var event = req.body;
     var sql = "INSERT INTO Events(userName, eventName, date, description, hood, pic) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::text)";
     var values = [event.user, event.eventName, event.date, event.description, event.hood, event.pic];
-
 
     pool.query(sql, values).then(function() {
         res.status(201);
