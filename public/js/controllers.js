@@ -1,15 +1,21 @@
 var app = angular.module("ourApp");
 
 app.controller("myController", function ($scope, eventService) {
+	$scope.lat=0;
+	$scope.long=0;
 	$scope.formItem = {};
 	$scope.searchForm = {};
 	$scope.flyers = [];
-
+ getLocation();
 	$scope.addEvent = function(item) {
+
+		item.lat = $scope.lat;
+		item.long = $scope.long;
+
 		eventService.addEvent(item).then(function() {
 			console.log($scope.formItem);
 			getEvents();
-			getLocation();
+
 			$scope.searchHood();
 			console.log(item);
 		});
@@ -45,7 +51,8 @@ app.controller("myController", function ($scope, eventService) {
 					};
 
 					console.log(pos);
-					return pos;
+					$scope.lat=pos.lat;
+					$scope.long=pos.lng;
 
 				}, function() {
 					handleLocationError(true, infoWindow, map.getCenter());
