@@ -7,14 +7,7 @@ const app = express();
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-var pool = new pg.Pool({
-    user: "postgres",
-    password: "quentin",
-    host: "localhost",
-    port: 5432,
-    database: "postgres",
-    ssl: false
-});
+var pool = require("./pg-connection-pool");
 
 function errorCallback(res) {
     return function(err) {

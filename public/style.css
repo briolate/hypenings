@@ -42,7 +42,7 @@ body {
   font-family: Roboto, sans-serif;
   color: #EDF5E1;
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -92,16 +92,20 @@ body {
 }
 
 /*flyer styles*/
+#flyerRow{
+  display: inline-block;
+}
 
 .thumbnail{
-  display: inline-block;
+  /*display: inline-block;*/
   text-shadow: none;
   font-family: Helvetica, Sans-Serif;
 }
 
-.thumbnail, h3{
+.thumbnail, h2{
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 
 /*#flyerBlock{
 
