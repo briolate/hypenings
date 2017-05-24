@@ -7,7 +7,7 @@ const app = express();
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-var pool = require("./pg­-connection­-pool");
+var pool = require("./pg-connection-pool");
 
 function errorCallback(res) {
     return function(err) {
