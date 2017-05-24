@@ -44,6 +44,18 @@ app.get('/events', function(req, res) {
     });
 });
 
+app.get('/localevents', function(req, res) {
+    var lat = req.query.lat;
+    var lng = req.query.lng;
+    console.log("lat = " + lat);
+    console.log("lng = " + lng);
+    pool.query("SELECT * FROM Events").then(function(result) {
+        res.send(result.rows);
+    }).catch(function(err) {
+        console.log(err);
+    });
+});
+
 
 
 

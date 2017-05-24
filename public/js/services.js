@@ -30,6 +30,20 @@
       return promise;
     };
 
+    this.getLocalEvents = function(lat,lng) {
+        var eventArr = [];
+        var promise = $http({
+          method: 'GET',
+          url: '/localevents?lat=' + lat + '%lng=' + lng
+      }).then(function successCallback(response) {
+        eventArr = response.data;
+        return eventArr;
+    }, function errorCallback(response) {
+        console.log('error');
+    });
+      return promise;
+    };
+
     
 
 });

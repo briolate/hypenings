@@ -54,6 +54,7 @@ app.controller("myController", function ($scope, eventService) {
 					console.log(pos);
 					$scope.lat = pos.lat;
 					$scope.long = pos.lng;
+					eventService.getLocalEvents($scope.long,$scope.lat);
 
 				}, function() {
 					handleLocationError(true, infoWindow, map.getCenter());
