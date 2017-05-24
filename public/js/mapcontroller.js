@@ -1,17 +1,8 @@
  var app = angular.module('ourApp');
-//
-// // $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE";
-//
-app.controller('mapController', function() {
-//
-//   NgMap.getMap().then(function(map) {
-//     // $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOnaTmhxrYprXqy9eTUbe8ioAD1vjG6zI";
-//
-//     console.log(map.getCenter());
-//     console.log('markers', map.markers);
-//     console.log('shapes', map.shapes);
-//   });
-// });
+
+app.controller('mapController', function($scope, eventService) {
+$scope.formItem = {};
+
 var map, infoWindow;
   function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -56,7 +47,6 @@ var map, infoWindow;
       }
 initMap();
 function getLoc() {
-
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
           var pos = {
@@ -64,6 +54,19 @@ function getLoc() {
             lng: position.coords.longitude
           };
           console.log(pos);
+          var contentString='<img src="https://upload.wikimedia.org/wikipedia/en/8/88/Opera_singer.jpg">'
+          var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+          var marker = new google.maps.Marker({
+           position:{lat:42.3365, lng:-83.0488},
+          map:map,
+          title: 'Operaaaaaa!'
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+          // infoWindow.setContent(marker.title);
+        });
 
         }, function() {
           handleLocationError(true, infoWindow, map.getCenter());
