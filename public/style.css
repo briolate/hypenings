@@ -1,3 +1,5 @@
+/*Redesign additions...*/
+
 #map {
   /*float: right;
   margin-right: 10px;*/
@@ -20,6 +22,120 @@ textarea {
 
 .event {
   margin: 40px;
+}
+
+.buttons {
+  padding-top: 20px;
+  padding-bottom: 180px;
+}
+
+#feat1 {
+  margin-top: 80px;
+}
+
+/*Featurette section CSS*/
+
+.featurette-divider {
+    margin: 80px 0;
+}
+
+.featurette {
+    overflow: hidden;
+}
+
+.featurette-image.pull-left {
+    margin-right: 40px;
+}
+
+.featurette-image.pull-right {
+    margin-left: 40px;
+}
+
+.featurette-heading {
+    font-size: 50px;
+}
+
+@media(max-width:1200px) {
+
+    .featurette-divider {
+        margin: 50px 0;
+    }
+
+    .featurette-image.pull-left {
+        margin-right: 20px;
+    }
+
+    .featurette-image.pull-right {
+        margin-left: 20px;
+    }
+
+    .featurette-heading {
+        font-size: 35px;
+    }
+}
+
+@media(max-width:991px) {
+
+    .featurette-divider {
+        margin: 40px 0;
+    }
+
+    .featurette-image {
+        max-width: 50%;
+    }
+
+    .featurette-image.pull-left {
+        margin-right: 10px;
+    }
+
+    .featurette-image.pull-right {
+        margin-left: 10px;
+    }
+
+    .featurette-heading {
+        font-size: 30px;
+    }
+}
+
+@media(max-width:768px) {
+    .feauturette-container {
+        margin: 0 15px;
+    }
+
+    .featurette-divider {
+        margin: 40px 0;
+    }
+
+    .featurette-heading {
+        font-size: 25px;
+    }
+}
+
+@media(max-width:668px) {
+
+    .featurette-divider {
+        margin: 30px 0;
+    }
+}
+
+@media(max-width:375px) {
+    .featurette-divider {
+        margin: 10px 0;
+    }
+
+    .featurette-image {
+        max-width: 100%;
+    }
+
+    .featurette-image.pull-left {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .featurette-image.pull-right {
+        margin-bottom: 10px;
+        margin-left: 0;
+    }
 }
 
 /* Links */
@@ -59,7 +175,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;*/
-  font-family: Roboto, sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #EDF5E1;
   text-align: center;
 }
@@ -67,8 +183,10 @@ body {
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 
 .cover-container {
-  margin-right: auto;
-  margin-left: auto;
+  background-image: url('img/detroit.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
 }
 
 /* Padding for spacing */
@@ -77,7 +195,7 @@ body {
 }
 
 .cover-heading {
-  padding-bottom: 20px;
+  padding-bottom: 60px;
   padding-top: 60px;
 }
 
