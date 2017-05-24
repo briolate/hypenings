@@ -1,10 +1,27 @@
-#map{
+#map {
   /*float: right;
   margin-right: 10px;*/
   height: 50vh;
   width: 45vw;
-
 }
+
+#head {
+  color: #05386B;
+}
+
+textarea {
+  resize: none;
+}
+
+.well {
+  background-image: -webkit-linear-gradient(top,#05386B 0,#05386B 100%);
+  border: none;
+}
+
+.event {
+  margin: 40px;
+}
+
 /* Links */
 a,
 a:focus,
@@ -163,7 +180,7 @@ h3 span {
 .cover-heading {
   display: inline-block;
   font-family: 'Audiowide', cursive;
-  font-size: 60px;
+  font-size: 70px;
   transform: rotate(-6deg);
   -ms-transform: rotate(-6deg);
   -moz-transform: rotate(-6deg);
