@@ -9,7 +9,9 @@ app.controller("myController", function ($scope, eventService) {
 		eventService.addEvent(item).then(function() {
 			console.log($scope.formItem);
 			getEvents();
+			getLocation();
 			$scope.searchHood();
+			console.log(item);
 		});
 	}
 
@@ -32,6 +34,28 @@ app.controller("myController", function ($scope, eventService) {
 		}
 	}
 
-	
-});
+	function getLocation () {
+		eventService.getAllEvents().then(function(eventArr) {
 
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function(position) {
+					var pos = {
+						lat: position.coords.latitude,
+						lng: position.coords.longitude
+					};
+
+					console.log(pos);
+					return pos;
+
+				}, function() {
+					handleLocationError(true, infoWindow, map.getCenter());
+				});
+			} else {
+				// Browser doesn't support Geolocation
+				handleLocationError(false, infoWindow, map.getCenter());
+			}
+
+		});
+	}
+
+});
