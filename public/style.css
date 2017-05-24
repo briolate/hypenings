@@ -31,6 +31,7 @@ body {
   height: 100%;
   background-image: url('img/detroit1.JPG');
   background-image: image-url('img/detroit1.JPG');
+  background-color: black;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
