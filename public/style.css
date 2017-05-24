@@ -9,7 +9,7 @@
 a,
 a:focus,
 a:hover {
-  color: #fff;
+  color: #EDF5E1;
   transition: 0.2s;
   -moz-transition: 0.2s;
   -webkit-transition: 0.2s;
@@ -26,20 +26,21 @@ a:hover {
  * Base structure
  */
 
-html,
-body {
-  height: 100%;
-  background-image: url('../happenings/main-page/img/detroit1.JPG');
-  background-image: url('img/detroit1.JPG');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-
+html {
+  position: relative;
+  min-height: 100%;
 }
 
 body {
+  background-color: #5CDB95;
+  margin: 0 0 190px;
+  /*background-image: url('../happenings/main-page/img/detroit1.JPG');
+  background-image: url('img/detroit1.JPG');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;*/
   font-family: Roboto, sans-serif;
-  color: #fff;
+  color: #EDF5E1;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
@@ -79,7 +80,7 @@ body {
   padding-left: 0;
   font-size: 28px;
   font-weight: bold;
-  color: #fff;
+  color: #EDF5E1;
 }
 
 .masthead-nav > li > a:hover,
@@ -87,7 +88,7 @@ body {
 .masthead-brand > li > a:hover,
 .masthead-brand > li > a:focus {
   background-color: transparent;
-  color:#fff;
+  color: #05386B;
 }
 
 /*flyer styles*/
@@ -170,7 +171,16 @@ h3 span {
  * Footer
  */
 
-.mastfoot {
-  color: #999;
-  color: rgba(255,255,255,.5);
-}
+ footer {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 190px;
+   background-image: url('img/detroit.png');
+   background-repeat: no-repeat;
+   background-size: cover;
+
+   /*color: #999;
+   color: rgba(255,255,255,.5);*/
+ }
