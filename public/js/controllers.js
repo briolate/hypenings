@@ -8,9 +8,9 @@ app.controller("myController", function ($scope, eventService) {
 	$scope.flyers = [];
  // getLocation();
 	$scope.addEvent = function(item) {
+		item.lat = $scope.lat;
+		item.long = $scope.long;
 
-		$scope.lat=item.lat;
-		$scope.long=item.long;
 
 		eventService.addEvent(item).then(function() {
 			console.log($scope.formItem);
@@ -41,31 +41,29 @@ app.controller("myController", function ($scope, eventService) {
 			}
 		}
 	}
-	// getLocation();
-	// function getLocation () {
-	// 	eventService.getAllEvents().then(function(eventArr) {
-	//
-	// 		if (navigator.geolocation) {
-	// 			navigator.geolocation.getCurrentPosition(function(position) {
-	// 				var pos = {
-	// 					lat: position.coords.latitude,
-	// 					lng: position.coords.longitude
-	// 				};
-	// 				$scope.getEvents();
-	// 				// console.log(pos);
-	// 				$scope.lat = pos.lat;
-	// 				$scope.long = pos.lng;
-	// 				eventService.getLocalEvents($scope.lat,$scope.long);
-	//
-	// 			}, function() {
-	// 				handleLocationError(true, infoWindow, map.getCenter());
-	// 			});
-	// 		} else {
-	// 			// Browser doesn't support Geolocation
-	// 			handleLocationError(false, infoWindow, map.getCenter());
-	// 		}
-	//
-	// 	});
-	// }
+	getLocation();
+	function getLocation () {
+		
+	
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function(position) {
+					var pos = {
+						lat: position.coords.latitude,
+						lng: position.coords.longitude
+					};
+					$scope.lat = pos.lat;
+					$scope.long = pos.lng;
+					eventService.getLocalEvents($scope.lat,$scope.long);
+	
+				}, function() {
+					handleLocationError(true, infoWindow, map.getCenter());
+				});
+			} else {
+				// Browser doesn't support Geolocation
+				handleLocationError(false, infoWindow, map.getCenter());
+			}
+	
+	
+	}
 
 });
