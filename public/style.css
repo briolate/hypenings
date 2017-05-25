@@ -1,15 +1,148 @@
-#map{
+/*Redesign additions...*/
+
+#map {
   /*float: right;
   margin-right: 10px;*/
   height: 50vh;
   width: 45vw;
-
 }
+
+#head {
+  color: #05386B;
+}
+
+textarea {
+  resize: none;
+}
+
+.well {
+  background-image: -webkit-linear-gradient(top,#05386B 0,#05386B 100%);
+  border: none;
+}
+
+.event {
+  margin: 40px;
+}
+
+.buttons {
+  padding-top: 20px;
+  padding-bottom: 180px;
+}
+
+#feat1 {
+  margin-top: 80px;
+}
+
+/*Featurette section CSS*/
+
+.featurette-divider {
+    margin: 80px 0;
+}
+
+.featurette {
+    overflow: hidden;
+}
+
+.featurette-image.pull-left {
+    margin-right: 40px;
+}
+
+.featurette-image.pull-right {
+    margin-left: 40px;
+}
+
+.featurette-heading {
+    font-size: 50px;
+}
+
+@media(max-width:1200px) {
+
+    .featurette-divider {
+        margin: 50px 0;
+    }
+
+    .featurette-image.pull-left {
+        margin-right: 20px;
+    }
+
+    .featurette-image.pull-right {
+        margin-left: 20px;
+    }
+
+    .featurette-heading {
+        font-size: 35px;
+    }
+}
+
+@media(max-width:991px) {
+
+    .featurette-divider {
+        margin: 40px 0;
+    }
+
+    .featurette-image {
+        max-width: 50%;
+    }
+
+    .featurette-image.pull-left {
+        margin-right: 10px;
+    }
+
+    .featurette-image.pull-right {
+        margin-left: 10px;
+    }
+
+    .featurette-heading {
+        font-size: 30px;
+    }
+}
+
+@media(max-width:768px) {
+    .feauturette-container {
+        margin: 0 15px;
+    }
+
+    .featurette-divider {
+        margin: 40px 0;
+    }
+
+    .featurette-heading {
+        font-size: 25px;
+    }
+}
+
+@media(max-width:668px) {
+
+    .featurette-divider {
+        margin: 30px 0;
+    }
+}
+
+@media(max-width:375px) {
+    .featurette-divider {
+        margin: 10px 0;
+    }
+
+    .featurette-image {
+        max-width: 100%;
+    }
+
+    .featurette-image.pull-left {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .featurette-image.pull-right {
+        margin-bottom: 10px;
+        margin-left: 0;
+    }
+}
+
 /* Links */
 a,
 a:focus,
 a:hover {
-  color: #fff;
+  color: #EDF5E1;
   transition: 0.2s;
   -moz-transition: 0.2s;
   -webkit-transition: 0.2s;
@@ -26,29 +159,34 @@ a:hover {
  * Base structure
  */
 
-html,
-body {
-  height: 100%;
-  background-image: url('../happenings/main-page/img/detroit1.JPG');
-  background-image: url('img/detroit1.JPG');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-
+html {
+  position: relative;
+  min-height: 100%;
 }
 
 body {
-  font-family: Roboto, sans-serif;
-  color: #fff;
+  background-color: #5CDB95;
+  margin: 0 0 190px;
+  /*background-image: url('../happenings/main-page/img/detroit1.JPG');
+  height: 100%;
+  background-image: url('img/detroit1.JPG');
+  background-image: image-url('img/detroit1.JPG');
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;*/
+  font-family: 'Roboto', sans-serif;
+  color: #EDF5E1;
   text-align: center;
-
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 
 .cover-container {
-  margin-right: auto;
-  margin-left: auto;
+  background-image: url('img/detroit.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
 }
 
 /* Padding for spacing */
@@ -57,7 +195,7 @@ body {
 }
 
 .cover-heading {
-  padding-bottom: 20px;
+  padding-bottom: 60px;
   padding-top: 60px;
 }
 
@@ -79,7 +217,7 @@ body {
   padding-left: 0;
   font-size: 28px;
   font-weight: bold;
-  color: #fff;
+  color: #EDF5E1;
 }
 
 .masthead-nav > li > a:hover,
@@ -87,7 +225,7 @@ body {
 .masthead-brand > li > a:hover,
 .masthead-brand > li > a:focus {
   background-color: transparent;
-  color:#fff;
+  color: #05386B;
 }
 
 /*flyer styles*/
@@ -188,7 +326,7 @@ h3 span {
 .cover-heading {
   display: inline-block;
   font-family: 'Audiowide', cursive;
-  font-size: 60px;
+  font-size: 70px;
   transform: rotate(-6deg);
   -ms-transform: rotate(-6deg);
   -moz-transform: rotate(-6deg);
@@ -200,7 +338,16 @@ h3 span {
  * Footer
  */
 
-.mastfoot {
-  color: #999;
-  color: rgba(255,255,255,.5);
-}
+ footer {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 190px;
+   background-image: url('img/detroit.png');
+   background-repeat: no-repeat;
+   background-size: cover;
+
+   /*color: #999;
+   color: rgba(255,255,255,.5);*/
+ }
