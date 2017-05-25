@@ -7,6 +7,8 @@ const app = express();
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
+
+// var pool = require("./pg-connection-pool");
 var pool = new pg.Pool({
     user: "postgres",
     password: 'EBriolat1.',
@@ -27,8 +29,8 @@ function errorCallback(res) {
 app.post('/events', function(req, res) {
 
     var event = req.body;
-    var sql = "INSERT INTO Events(userName, eventName, date, description, hood, pic) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::text)";
-    var values = [event.user, event.eventName, event.date, event.description, event.hood, event.pic];
+    var sql = "INSERT INTO events(userName, eventName, date, description, hood, lat, lng) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::decimal, $7::decimal)";
+    var values = [event.user, event.eventName, event.date, event.description, event.hood, event.lat, event.long];
 
     pool.query(sql, values).then(function() {
         res.status(201);
@@ -43,6 +45,24 @@ app.get('/events', function(req, res) {
         console.log(err);
     });
 });
+
+app.get('/localevents', function(req, res) {
+    var lat = req.query.lat;
+    var lng = req.query.lng;
+    var values = [lat, lng]
+    var sql = "select * from (SELECT * , (3959 * acos (cos ( radians($1::real) )* cos( radians( lat ) )* cos( radians( lng )- radians($2::real) )+ sin ( radians($1::real) )* sin( radians( lat ) ))) AS distance FROM events)AS distance where distance < 1 AND timeadded + INTERVAL '24 HOUR' > now()";
+
+    console.log("lat = " + lat);
+    console.log("lng = " + lng);
+    pool.query(sql, [lat,lng]).then(function(result) {
+        res.send(result.rows);
+        console.log(result.rows);
+    }).catch(function(err) {
+        console.log(err);
+    });
+});
+
+
 
 
 
@@ -62,8 +82,8 @@ date VARCHAR(40),
 description VARCHAR(200),
 hood VARCHAR(40),
 pic VARCHAR(40),
-long INT,
-lat INT
+lat DECIMAL(11,8),
+lng DECIMAL(10,8)
 );
 
 */

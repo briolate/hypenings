@@ -13,7 +13,7 @@
 			</select>
 		</div>
 	</form> -->
-<div  class="col-xs-6" ng-controller="myController">
+<div  class="col-xs-6" ng-controller="mapController">
 	<div id="flyerRow" class="row">
 
     <div class="item" ng-repeat="event in events" ng-style="{{event.hood}}">
@@ -24,7 +24,7 @@
 				<img src="img/{{event.pic}}.png">
 				<h4>{{event.date}}</h4>
 				<p>{{event.description}}</p>
-				<p><small class="text-muted">Event expires in (x) hours.</small></p>
+				<p><small class="text-muted">Event added on {{event.timeadded | date:"MM/dd 'at' h:mma"}}</small></p>
 			  </div>
 					</a>
     </div>
