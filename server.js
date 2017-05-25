@@ -7,6 +7,7 @@ const app = express();
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
+
 // var pool = require("./pg-connection-pool");
 var pool = new pg.Pool({
     user: "postgres",
@@ -81,8 +82,8 @@ date VARCHAR(40),
 description VARCHAR(200),
 hood VARCHAR(40),
 pic VARCHAR(40),
-long INT,
-lat INT
+lat DECIMAL(11,8),
+lng DECIMAL(10,8)
 );
 
 */
