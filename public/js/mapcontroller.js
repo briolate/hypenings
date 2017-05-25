@@ -32,7 +32,7 @@ app.controller('mapController', function($scope, eventService) {
         // infoWindow.setContent('Location found.');
         // infoWindow.open(map);
         // console.log(pos);
-        map.setZoom(15);
+        map.setZoom(14);
         map.setCenter(pos);
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
