@@ -169,10 +169,10 @@ html {
 }
 
 body {
-  background-color: #5CDB95;
+  /*background-color: #5CDB95;*/
   margin: 0 0 190px;
-  /*background-image: url('../happenings/main-page/img/detroit1.JPG');
-  height: 100%;
+  background-image: url('/img/bokeh3.jpg');
+  /*height: 100%;
   background-image: url('img/detroit1.JPG');
   background-image: image-url('img/detroit1.JPG');
   background-color: black;
@@ -187,7 +187,7 @@ body {
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 
 .cover-container {
-  background-image: url('img/skyline1.png');
+  /*background-image: url('img/skyline1.png');*/
   background-repeat: no-repeat;
   background-position:left bottom;
   background-size: contain;
@@ -234,15 +234,19 @@ body {
   color: #05386B;
 }
 
+/* Add Event Form Box Style*/
+#formBox {
+
+}
+
+
+
+
+
 /*flyer styles*/
 
 
-
-
-
-
-
-.row {
+#flyerRow.row {
  -moz-column-width: 18em;
  -webkit-column-width: 18em;
  -moz-column-gap: 1em;
