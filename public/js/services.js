@@ -23,6 +23,7 @@
           url: '/events'
       }).then(function successCallback(response) {
         eventArr = response.data;
+        console.log(eventArr);
         return eventArr;
     }, function errorCallback(response) {
         console.log('error');
@@ -37,7 +38,10 @@
           url: '/localevents?lat=' + lat + '&lng=' + lng
       }).then(function successCallback(response) {
         eventArr = response.data;
+        console.log(eventArr)
         return eventArr;
+
+        // return eventArr;
     }, function errorCallback(response) {
         console.log('error');
     });

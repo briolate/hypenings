@@ -47,10 +47,14 @@ app.get('/events', function(req, res) {
 app.get('/localevents', function(req, res) {
     var lat = req.query.lat;
     var lng = req.query.lng;
+    var values = [lat, lng]
+    var sql = "select * from (SELECT * , (3959 * acos (cos ( radians($1::real) )* cos( radians( lat ) )* cos( radians( lng )- radians($2::real) )+ sin ( radians($1::real) )* sin( radians( lat ) ))) AS distance FROM events)AS distance where distance < 1";
+
     console.log("lat = " + lat);
     console.log("lng = " + lng);
-    pool.query("SELECT * FROM Events").then(function(result) {
+    pool.query(sql, [lat,lng]).then(function(result) {
         res.send(result.rows);
+        console.log(result.rows);
     }).catch(function(err) {
         console.log(err);
     });
