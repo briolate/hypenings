@@ -6,19 +6,18 @@ app.controller("myController", function ($scope, eventService) {
 	$scope.formItem = {};
 	$scope.searchForm = {};
 	$scope.flyers = [];
+	$scope.submissionSuccess = false;	
  // getLocation();
 	$scope.addEvent = function(item) {
 		item.lat = $scope.lat;
 		item.long = $scope.long;
-
-
 		eventService.addEvent(item).then(function() {
 			console.log($scope.formItem);
-			getEvents();
-
-			$scope.searchHood();
+			// $scope.searchHood();
 			console.log(item);
+			$scope.submissionSuccess = true;
 		});
+		$scope.formItem = {};
 	}
 
 

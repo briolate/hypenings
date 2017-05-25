@@ -1,9 +1,9 @@
 <div class="container-fluid">
 
 
-    <div id="formBox" class="col-xs-4 col-xs-offset-4">
+    <div id="formBox" ng-controller="myController" class="col-xs-4 col-xs-offset-4">
         <h2>Add Event</h2>
-        <form ng-submit="addEvent(formItem)" ng-controller="myController">
+        <form ng-submit="addEvent(formItem)" >
           <div class="form-group">
             <label for="event-user">User Name</label>
             <input type="text" class="form-control" id="event-user" required ng-model="formItem.user">
@@ -30,17 +30,9 @@
                   <option>West Village</option>
               </select>
           </div>
-          <div class="form-group">
-              <label for="event-pic">Select backgound picture for event flyer:</label>
-              <select class="form-control" id="event-pic" ng-model="formItem.pic">
-                  <option>Blue</option>
-                  <option>Flyer1</option>
-                  <option>Green</option>
-                  <option>Purple</option>
-              </select>
-          </div>
           <button type="submit" class="btn btn-lg btn-default">Add Event</button>
         </form>
+        <div ng-show="submissionSuccess">It worked!</div>
       </div>
 
 </div>
