@@ -25,12 +25,16 @@ textarea {
 }
 
 .buttons {
-  padding-top: 20px;
-  padding-bottom: 180px;
+  padding-top: 40px;
+  padding-bottom: 320px;
 }
 
 #feat1 {
   margin-top: 80px;
+}
+
+.subhead {
+  font-size: 24px;
 }
 
 /*Featurette section CSS*/
@@ -183,10 +187,12 @@ body {
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 
 .cover-container {
-  background-image: url('img/detroit.png');
+  background-image: url('img/skyline1.png');
   background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
+  background-position:left bottom;
+  background-size: contain;
+  bottom: 0;
+  /*background-attachment: fixed;*/
 }
 
 /* Padding for spacing */
@@ -326,7 +332,7 @@ h3 span {
 .cover-heading {
   display: inline-block;
   font-family: 'Audiowide', cursive;
-  font-size: 70px;
+  font-size: 80px;
   transform: rotate(-6deg);
   -ms-transform: rotate(-6deg);
   -moz-transform: rotate(-6deg);
@@ -347,7 +353,11 @@ h3 span {
    background-image: url('img/detroit.png');
    background-repeat: no-repeat;
    background-size: cover;
+   color: #999;
+   color: rgba(255,255,255,.5);
+ }
 
-   /*color: #999;
-   color: rgba(255,255,255,.5);*/
+ .copyright {
+   text-align: center;
+   margin-top: 140px;
  }
