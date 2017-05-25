@@ -22,13 +22,13 @@ app.controller("myController", function ($scope, eventService) {
 	}
 
 
-	function getEvents () {
-		eventService.getAllEvents().then(function(eventArr) {
-			$scope.events = eventArr;
-	
-		});
-	}
-	getEvents();
+	// function getEvents () {
+	// 	eventService.getLocalEvents().then(function(eventArr) {
+	// 		$scope.events = eventArr;
+	//
+	// 	});
+	// }
+	// getEvents();
 
 
 	$scope.searchHood = function() {

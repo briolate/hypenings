@@ -56,6 +56,7 @@ app.controller('mapController', function($scope, eventService) {
     $scope.getEvents = function() {
       eventService.getLocalEvents($scope.lat, $scope.long).then(function(response) {
         var eventArr = response;
+        $scope.events=response;
         console.log($scope.lat);
         console.log(eventArr);
         console.log(response);
