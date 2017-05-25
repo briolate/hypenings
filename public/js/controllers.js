@@ -6,11 +6,11 @@ app.controller("myController", function ($scope, eventService) {
 	$scope.formItem = {};
 	$scope.searchForm = {};
 	$scope.flyers = [];
- getLocation();
+ // getLocation();
 	$scope.addEvent = function(item) {
 
-		item.lat = $scope.lat;
-		item.long = $scope.long;
+		$scope.lat=item.lat;
+		$scope.long=item.long;
 
 		eventService.addEvent(item).then(function() {
 			console.log($scope.formItem);
@@ -21,16 +21,23 @@ app.controller("myController", function ($scope, eventService) {
 		});
 	}
 
-	function getEvents () {
-		eventService.getAllEvents().then(function(eventArr) {
-			$scope.events = eventArr;
-		});
-	}
-	getEvents();
+	// function localEvents () {
+	// 	eventService.getLocalEvents($scope.lat, $scope.long).then(function(eventArr) {
+	// 		$scope.events = eventArr;
+	//
+	// 	});
+	// }
+	// function getEvents () {
+	// 	eventService.getAllEvents().then(function(eventArr) {
+	// 		$scope.events = eventArr;
+	//
+	// 	});
+	// }
+	// getEvents();
 
 
 	$scope.searchHood = function() {
-		getEvents();
+		// localEvents();
 		$scope.hoodResults = [];
 		var targetHood = $scope.searchForm.hood;
 		for (var i = 0; i < $scope.events.length; i++) {
@@ -39,30 +46,31 @@ app.controller("myController", function ($scope, eventService) {
 			}
 		}
 	}
-
-	function getLocation () {
-		eventService.getAllEvents().then(function(eventArr) {
-
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(function(position) {
-					var pos = {
-						lat: position.coords.latitude,
-						lng: position.coords.longitude
-					};
-
-					console.log(pos);
-					$scope.lat=pos.lat;
-					$scope.long=pos.lng;
-
-				}, function() {
-					handleLocationError(true, infoWindow, map.getCenter());
-				});
-			} else {
-				// Browser doesn't support Geolocation
-				handleLocationError(false, infoWindow, map.getCenter());
-			}
-
-		});
-	}
+	// getLocation();
+	// function getLocation () {
+	// 	eventService.getAllEvents().then(function(eventArr) {
+	//
+	// 		if (navigator.geolocation) {
+	// 			navigator.geolocation.getCurrentPosition(function(position) {
+	// 				var pos = {
+	// 					lat: position.coords.latitude,
+	// 					lng: position.coords.longitude
+	// 				};
+	// 				$scope.getEvents();
+	// 				// console.log(pos);
+	// 				$scope.lat = pos.lat;
+	// 				$scope.long = pos.lng;
+	// 				eventService.getLocalEvents($scope.lat,$scope.long);
+	//
+	// 			}, function() {
+	// 				handleLocationError(true, infoWindow, map.getCenter());
+	// 			});
+	// 		} else {
+	// 			// Browser doesn't support Geolocation
+	// 			handleLocationError(false, infoWindow, map.getCenter());
+	// 		}
+	//
+	// 	});
+	// }
 
 });

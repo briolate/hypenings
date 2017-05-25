@@ -51,8 +51,12 @@ app.controller('mapController', function($scope, eventService) {
 
     initMap();
 
-    function getEvents () {
-      eventService.getAllEvents().then(function(eventArr) {
+    $scope.getEvents = function() {
+      eventService.getLocalEvents($scope.lat, $scope.long).then(function(response) {
+        var eventArr = response;
+        console.log($scope.lat);
+        console.log(eventArr);
+        console.log(response);
 
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -62,7 +66,7 @@ app.controller('mapController', function($scope, eventService) {
             };
 
             console.log(pos);
-            console.log(eventArr);
+            // console.log(eventArr);
 
 
 
@@ -110,49 +114,34 @@ app.controller('mapController', function($scope, eventService) {
       });
     }
 
-getEvents();
+// $scope.getEvents();
+getLocation();
+function getLocation () {
+  eventService.getAllEvents().then(function(eventArr) {
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+
+        // console.log(pos);
+        $scope.lat = pos.lat;
+        $scope.long = pos.lng;
+        eventService.getLocalEvents($scope.lat,$scope.long);
+        $scope.getEvents();
+
+      }, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
 
   });
-    // function getLoc() {
-    //
-    //
-    //
-    //       if (navigator.geolocation) {
-    //         navigator.geolocation.getCurrentPosition(function(position) {
-    //           var pos = {
-    //             lat: position.coords.latitude,
-    //             lng: position.coords.longitude
-    //           };
-    //
-    //           console.log(pos);
-    //           var contentString='<img src="https://upload.wikimedia.org/wikipedia/en/8/88/Opera_singer.jpg">'
-    //           var infowindow = new google.maps.InfoWindow({
-    //           content: contentString
-    //         });
-    //           var marker = new google.maps.Marker({
-    //            position:{lat:42.3365, lng:-83.0488},
-    //           map:map,
-    //           title: 'Operaaaaaa!'
-    //         });
-    //         marker.addListener('click', function() {
-    //           infowindow.open(map, marker);
-    //           // infoWindow.setContent(marker.title);
-    //         });
-    //
-    //         }, function() {
-    //           handleLocationError(true, infoWindow, map.getCenter());
-    //         });
-    //       } else {
-    //         // Browser doesn't support Geolocation
-    //         handleLocationError(false, infoWindow, map.getCenter());
-    //       }
-    //     }
-    //
-    //     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    //       infoWindow.setPosition(pos);
-    //       infoWindow.setContent(browserHasGeolocation ?
-    //                             'Error: The Geolocation service failed.' :
-    //                             'Error: Your browser doesn\'t support geolocation.');
-    //       infoWindow.open(map);
-    //     }
-    // getLoc();
+}
+
+  });
