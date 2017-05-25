@@ -21,19 +21,14 @@ app.controller("myController", function ($scope, eventService) {
 		});
 	}
 
-	// function localEvents () {
-	// 	eventService.getLocalEvents($scope.lat, $scope.long).then(function(eventArr) {
-	// 		$scope.events = eventArr;
-	//
-	// 	});
-	// }
-	// function getEvents () {
-	// 	eventService.getAllEvents().then(function(eventArr) {
-	// 		$scope.events = eventArr;
-	//
-	// 	});
-	// }
-	// getEvents();
+
+	function getEvents () {
+		eventService.getAllEvents().then(function(eventArr) {
+			$scope.events = eventArr;
+	
+		});
+	}
+	getEvents();
 
 
 	$scope.searchHood = function() {
