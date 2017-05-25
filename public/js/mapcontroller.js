@@ -16,12 +16,12 @@ app.controller('mapController', function($scope, eventService) {
       center: {lat: 42.3314, lng: -83.0458},
       zoom: 14,
       mapTypeControlOptions: {
-            mapTypeIds: ['styled_map']
-          }
+        mapTypeIds: ['styled_map']
+      }
     });
 
     map.mapTypes.set('styled_map', styledMapType);
-        map.setMapTypeId('styled_map');
+    map.setMapTypeId('styled_map');
 
     infoWindow = new google.maps.InfoWindow;
 
@@ -59,39 +59,47 @@ app.controller('mapController', function($scope, eventService) {
     infoWindow.setContent(browserHasGeolocation ?
       'Error: The Geolocation service failed.' :
       'Error: Your browser doesn\'t support geolocation.');
-      infoWindow.open(map);
-    }
+    infoWindow.open(map);
+  }
 
-    initMap();
+  initMap();
 
-    $scope.getEvents = function() {
-      eventService.getLocalEvents($scope.lat, $scope.long).then(function(response) {
-        var eventArr = response;
-        $scope.events=response;
-        console.log($scope.lat);
-        console.log(eventArr);
-        console.log(response);
+  $scope.getEvents = function() {
+    eventService.getLocalEvents($scope.lat, $scope.long).then(function(response) {
+      console.log("response = r " + response);
+      // for (var i = 0; i < response.length; i++) {
+      //   var dateAdded = response[i].timeadded;
+      //   var endate = new Date();
+      //   var seconds = (dateAdded.getTime() - startDate.getTime()) / 1000;
+      //   response[i].timeLeft = seconds;
+      // }
 
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
+      var eventArr = response;
+      $scope.events=response;
+      console.log($scope.lat);
+      console.log(eventArr);
+      console.log(response);
 
-            console.log(pos);
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          console.log(pos);
             // console.log(eventArr);
 
             var cityCircle = new google.maps.Circle({
-            strokeColor: '#7cdaf9',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#7cdaf9',
-            fillOpacity: 0.35,
-            map: map,
-            center: pos,
-            radius: 1609.34
-          });
+              strokeColor: '#7cdaf9',
+              strokeOpacity: 0.8,
+              strokeWeight: 2,
+              fillColor: '#7cdaf9',
+              fillOpacity: 0.35,
+              map: map,
+              center: pos,
+              radius: 1609.34
+            });
 
             for(i=0; i < eventArr.length; i++){
               //   var contentString='eventArr.eventname';
@@ -129,13 +137,13 @@ app.controller('mapController', function($scope, eventService) {
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
-        } else {
+      } else {
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
 
       });
-    }
+  }
 
 // $scope.getEvents();
 getLocation();
@@ -167,4 +175,4 @@ function getLocation () {
   });
 }
 
-  });
+});
