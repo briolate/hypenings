@@ -21,8 +21,10 @@ app.controller('mapController', function($scope, eventService) {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
+
         var marker = new google.maps.Marker({
           position:{lat:position.coords.latitude, lng:position.coords.longitude},
+          icon: '../img/blueCir.png',
           map:map
         });
 
@@ -68,7 +70,16 @@ app.controller('mapController', function($scope, eventService) {
             console.log(pos);
             // console.log(eventArr);
 
-
+            var cityCircle = new google.maps.Circle({
+            strokeColor: '#7cdaf9',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#7cdaf9',
+            fillOpacity: 0.35,
+            map: map,
+            center: pos,
+            radius: 1609.34
+          });
 
             for(i=0; i < eventArr.length; i++){
               //   var contentString='eventArr.eventname';
