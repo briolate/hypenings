@@ -16,7 +16,6 @@ textarea {
 }
 
 .well {
-  background-image: -webkit-linear-gradient(top,#05386B 0,#05386B 100%);
   border: none;
 }
 
@@ -235,15 +234,31 @@ body {
 
 /* Add Event Form Box Style*/
 #formBox {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+}
+
+#formBox, label {
+  color: black;
+}
+
+#formBox .form-group{
+  margin-bottom: 8px;
+}
+
+#formBox button {
+  margin-bottom: 15px;
 
 }
 
 
 
 
-
 /*flyer styles*/
-
+#flyerRow img {
+  height: 100px;
+  width: auto;
+}
 
 #flyerRow.row {
  -moz-column-width: 18em;
