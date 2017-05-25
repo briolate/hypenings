@@ -14,9 +14,9 @@ app.controller("myController", function ($scope, eventService) {
 
 		eventService.addEvent(item).then(function() {
 			console.log($scope.formItem);
-			getEvents();
 
-			$scope.searchHood();
+
+			
 			console.log(item);
 		});
 	}
@@ -43,8 +43,8 @@ app.controller("myController", function ($scope, eventService) {
 	}
 	getLocation();
 	function getLocation () {
-		
-	
+
+
 			if (navigator.geolocation) {
 				navigator.geolocation.getCurrentPosition(function(position) {
 					var pos = {
@@ -54,7 +54,7 @@ app.controller("myController", function ($scope, eventService) {
 					$scope.lat = pos.lat;
 					$scope.long = pos.lng;
 					eventService.getLocalEvents($scope.lat,$scope.long);
-	
+
 				}, function() {
 					handleLocationError(true, infoWindow, map.getCenter());
 				});
@@ -62,8 +62,8 @@ app.controller("myController", function ($scope, eventService) {
 				// Browser doesn't support Geolocation
 				handleLocationError(false, infoWindow, map.getCenter());
 			}
-	
-	
+
+
 	}
 
 });

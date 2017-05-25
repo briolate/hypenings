@@ -50,7 +50,7 @@ app.get('/localevents', function(req, res) {
     var lat = req.query.lat;
     var lng = req.query.lng;
     var values = [lat, lng]
-    var sql = "select * from (SELECT * , (3959 * acos (cos ( radians($1::real) )* cos( radians( lat ) )* cos( radians( lng )- radians($2::real) )+ sin ( radians($1::real) )* sin( radians( lat ) ))) AS distance FROM events)AS distance where distance < 1";
+    var sql = "select * from (SELECT * , (3959 * acos (cos ( radians($1::real) )* cos( radians( lat ) )* cos( radians( lng )- radians($2::real) )+ sin ( radians($1::real) )* sin( radians( lat ) ))) AS distance FROM events)AS distance where distance < 1 AND timeadded + INTERVAL '48 HOUR' > now()";
 
     console.log("lat = " + lat);
     console.log("lng = " + lng);
