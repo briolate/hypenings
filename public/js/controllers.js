@@ -22,6 +22,7 @@ app.controller("myController", function ($scope, eventService) {
 		$scope.formItem = {};
 	}
 
+	
 
 	// function getEvents () {
 	// 	eventService.getLocalEvents().then(function(eventArr) {
