@@ -9,7 +9,7 @@
     </div>
 </div>
 
-<div class="feauturette-container">
+<div class="feauturette-container" ng-controller="homeController">
 
     <!-- First Featurette -->
 
@@ -17,10 +17,10 @@
 
     <div class="featurette" id="feat1">
         <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
-        <h2 class="featurette-heading">This First Heading
-            <span class="text-muted">Will Catch Your Eye</span>
+        <h2 class="featurette-heading">{{homeEvents1.eventname}}
+            <span class="text-muted">{{homeEvents1.date}}</span>
         </h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <p class="lead">{{homeEvents1.description}}</p>
     </div>
 
     <!-- <hr class="featurette-divider"> -->
@@ -28,10 +28,12 @@
     <!-- Second Featurette -->
     <div class="featurette" id="feat2">
         <img class="featurette-image img-circle img-responsive pull-left" src="http://placehold.it/500x500">
-        <h2 class="featurette-heading">The Second Heading
-            <span class="text-muted">Is Pretty Cool Too.</span>
+        <h2 class="featurette-heading">{{homeEvents2.eventname}}
+            <span class="text-muted">{{homeEvents2.date}}</span>
+        
+
         </h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <p class="lead">{{homeEvents2.description}}</p>
     </div>
 
     <!-- <hr class="featurette-divider"> -->
@@ -39,9 +41,9 @@
     <!-- Third Featurette -->
     <div class="featurette" id="feat3">
         <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
-        <h2 class="featurette-heading">The Third Heading
-            <span class="text-muted">Will Seal the Deal.</span>
+        <h2 class="featurette-heading">{{homeEvents3.eventname}}
+            <span class="text-muted">{{homeEvents3.date}}</span>
         </h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <p class="lead">{{homeEvents3.description}}</p>
     </div>
 </div>
