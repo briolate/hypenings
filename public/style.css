@@ -282,6 +282,10 @@ body {
 
 }
 
+#preview-icon {
+    height: 100px;
+  width: auto;
+}
 
 
 
@@ -424,4 +428,7 @@ h3 span {
   list-style: none;
   text-align: center;
   font-size: 20px;
+}
+
+#live-preview {
 }
