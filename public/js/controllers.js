@@ -6,31 +6,32 @@ app.controller("myController", function ($scope, eventService) {
 	$scope.formItem = {};
 	$scope.searchForm = {};
 	$scope.flyers = [];
- getLocation();
+	$scope.submissionSuccess = false;
+ // getLocation();
 	$scope.addEvent = function(item) {
-
 		item.lat = $scope.lat;
 		item.long = $scope.long;
-
 		eventService.addEvent(item).then(function() {
 			console.log($scope.formItem);
-			getEvents();
 
-			$scope.searchHood();
 			console.log(item);
+			$scope.submissionSuccess = true;
 		});
+		$scope.formItem = {};
 	}
 
-	function getEvents () {
-		eventService.getAllEvents().then(function(eventArr) {
-			$scope.events = eventArr;
-		});
-	}
-	getEvents();
+
+	// function getEvents () {
+	// 	eventService.getLocalEvents().then(function(eventArr) {
+	// 		$scope.events = eventArr;
+	//
+	// 	});
+	// }
+	// getEvents();
 
 
 	$scope.searchHood = function() {
-		getEvents();
+		// localEvents();
 		$scope.hoodResults = [];
 		var targetHood = $scope.searchForm.hood;
 		for (var i = 0; i < $scope.events.length; i++) {
@@ -39,9 +40,9 @@ app.controller("myController", function ($scope, eventService) {
 			}
 		}
 	}
-
+	getLocation();
 	function getLocation () {
-		eventService.getAllEvents().then(function(eventArr) {
+
 
 			if (navigator.geolocation) {
 				navigator.geolocation.getCurrentPosition(function(position) {
@@ -49,10 +50,9 @@ app.controller("myController", function ($scope, eventService) {
 						lat: position.coords.latitude,
 						lng: position.coords.longitude
 					};
-
-					console.log(pos);
-					$scope.lat=pos.lat;
-					$scope.long=pos.lng;
+					$scope.lat = pos.lat;
+					$scope.long = pos.lng;
+					eventService.getLocalEvents($scope.lat,$scope.long);
 
 				}, function() {
 					handleLocationError(true, infoWindow, map.getCenter());
@@ -62,7 +62,7 @@ app.controller("myController", function ($scope, eventService) {
 				handleLocationError(false, infoWindow, map.getCenter());
 			}
 
-		});
+
 	}
 
 });

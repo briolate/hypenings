@@ -9,7 +9,7 @@
         })
         .then(function(response) {
             console.log('success')
-        }, 
+        },
         function(response) {
             console.log('post failed');
         });
@@ -23,11 +23,31 @@
           url: '/events'
       }).then(function successCallback(response) {
         eventArr = response.data;
+        console.log(eventArr);
         return eventArr;
     }, function errorCallback(response) {
         console.log('error');
     });
       return promise;
     };
+
+    this.getLocalEvents = function(lat,lng) {
+        var eventArr = [];
+        var promise = $http({
+          method: 'GET',
+          url: '/localevents?lat=' + lat + '&lng=' + lng
+      }).then(function successCallback(response) {
+        eventArr = response.data;
+        console.log(eventArr)
+        return eventArr;
+
+        // return eventArr;
+    }, function errorCallback(response) {
+        console.log('error');
+    });
+      return promise;
+    };
+
+
 
 });
