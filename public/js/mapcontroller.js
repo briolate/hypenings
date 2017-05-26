@@ -55,6 +55,17 @@ app.controller('mapController', function($scope, eventService) {
 
     $scope.getEvents = function() {
       eventService.getLocalEvents($scope.lat, $scope.long).then(function(response) {
+        for (var i = 0;i < response.length; i++) {
+          var timestamp = response[i].timeadded;
+          var unix_seconds = ((new Date(timestamp)).getTime());
+          var date=Date.now();
+          var s=new Date(unix_seconds+172800000);
+
+          console.log(s.toLocaleString());
+
+          response[i].expTime = (s.toLocaleString());
+        }
+
         var eventArr = response;
         $scope.events=response;
         console.log($scope.lat);
@@ -88,15 +99,7 @@ app.controller('mapController', function($scope, eventService) {
               //   var infowindow = new google.maps.InfoWindow({
               //   content: contentString
               // });
-              var timestamp = eventArr[i].timeadded;
-              var unix_seconds = ((new Date(timestamp)).getTime());
-              var date=Date.now();
-              var s=new Date(unix_seconds+172800000);
 
-              console.log(s.toLocaleString());
-
-              $scope.times.push(s.toLocaleString());
-              console.log($scope.times);
 
               var marker = new google.maps.Marker({
                 position: { lat:Number(eventArr[i].lat), lng:Number(eventArr[i].lng) },
