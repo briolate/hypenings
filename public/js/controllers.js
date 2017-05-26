@@ -7,6 +7,8 @@ app.controller("myController", function ($scope, eventService) {
 	$scope.searchForm = {};
 	$scope.flyers = [];
 	$scope.submissionSuccess = false;
+	$scope.timeLeft=0;
+	$scope.times=[];
  // getLocation();
 	$scope.addEvent = function(item) {
 		item.lat = $scope.lat;
