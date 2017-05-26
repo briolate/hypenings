@@ -16,7 +16,6 @@ textarea {
 }
 
 .well {
-  background-image: -webkit-linear-gradient(top,#05386B 0,#05386B 100%);
   border: none;
 }
 
@@ -26,11 +25,34 @@ textarea {
 
 .buttons {
   padding-top: 40px;
-  padding-bottom: 320px;
+  padding-bottom: 270px;
 }
 
 #feat1 {
   margin-top: 80px;
+  background-image: url('img/feature1.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#feat2 {
+  background-image: url('img/feature2.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#feat3 {
+  background-image: url('img/feature3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.featurette-image {
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .subhead {
@@ -235,15 +257,31 @@ body {
 
 /* Add Event Form Box Style*/
 #formBox {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+}
+
+#formBox, label {
+  color: black;
+}
+
+#formBox .form-group{
+  margin-bottom: 8px;
+}
+
+#formBox button {
+  margin-bottom: 15px;
 
 }
 
 
 
 
-
 /*flyer styles*/
-
+#flyerRow img {
+  height: 100px;
+  width: auto;
+}
 
 #flyerRow.row {
  -moz-column-width: 18em;
@@ -334,8 +372,8 @@ h3 span {
 
 .cover-heading {
   display: inline-block;
-  font-family: 'Audiowide', cursive;
-  font-size: 80px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 100px;
   transform: rotate(-6deg);
   -ms-transform: rotate(-6deg);
   -moz-transform: rotate(-6deg);
@@ -360,7 +398,18 @@ h3 span {
    color: rgba(255,255,255,.5);
  }
 
- .copyright {
-   text-align: center;
-   margin-top: 140px;
- }
+.copyright {
+  margin-top: 120px;
+  text-align: center;
+}
+
+.social ul {
+  text-align: center;
+}
+
+.social a {
+  display: inline;
+  list-style: none;
+  text-align: center;
+  font-size: 20px;
+}
