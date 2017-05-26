@@ -1,74 +1,91 @@
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="myController">
+
+  <div class="row">
 
 
-    <div id="formBox" ng-controller="myController" class="col-xs-4 col-xs-offset-4">
-        <h2>Add Event</h2>
-        <form ng-submit="addEvent(formItem)" >
-          <div class="form-group">
-            <label for="event-user">Name</label>
-            <input type="text" class="form-control" id="event-user" required ng-model="formItem.user">
-          </div>
-          <div class="form-group">
-            <label for="event-name">Event Name</label>
-            <input type="text" class="form-control" id="event-name" required ng-model="formItem.eventName">
-          </div>
-          <div class="form-group">
-              <label for="event-date">Date</label>
-              <input type="text" class="form-control" id="event-date" required ng-model="formItem.date">
-          </div>
-          <div class="form-group">
-              <label for="event-description">Description</label>
-              <textarea rows="5" type="in" class="form-control" id="event-description" required ng-model="formItem.description">
-              </textarea>
-          </div>
-          <div class="form-group">
-              <label for="event-hood">Select Background Color:</label>
-              <select class="form-control" id="event-hood" ng-model="formItem.hood">
-                  <option>teal</option>
-                  <option>Cork Town</option>
-                  <option>Mid Town</option>
-                  <option>West Village</option>
-              </select>
-          </div>
-          <div class="form-group">
-              <label for="event-pic">Select Icon:</label>
-              <select class="form-control" id="event-pic" ng-model="formItem.pic">
-                  <option>Apple</option>
-                  <option>Barbecue</option>
-                  <option>Bicycle</option>
-                  <option>Birthday</option>
-                  <option>Cat</option>
-                  <option>Confetti</option>
-                  <option>Cosmetics</option>
-                  <option>Cutlery</option>
-                  <option>Dog</option>
-                  <option>Doughnut</option>
-                  <option>Flower</option>
-                  <option>Foodstand</option>
-                  <option>Foodtruck</option>
-                  <option>Groceries</option>
-                  <option>Hamburger</option>
-                  <option>Hanger</option>
-                  <option>Hotdrink</option>
-                  <option>Leaf</option>
-                  <option>Music1</option>
-                  <option>Music2</option>
-                  <option>Pricetag</option>
-                  <option>Sale</option>
-                  <option>Shoe</option>
-                  <option>Stage</option>
-                  <option>Star</option>
-                  <option>Store</option>
-                  <option>Sunbathe</option>
-                  <option>Tech</option>
-              </select>
-          </div>
-          <button type="submit" class="btn btn-lg btn-default">Add Event</button>
-        </form>
-        <div ng-show="submissionSuccess">It worked!</div>
+    <div id="formBox" class="col-xs-4 col-xs-offset-4">
+      <h2>Add Event</h2>
+      <form ng-submit="addEvent(formItem)">
+        <div class="form-group">
+          <label for="event-user">Name</label>
+          <input type="text" class="form-control" id="event-user" required ng-model="formItem.user">
+        </div>
+        <div class="form-group">
+          <label for="event-name">Event Name</label>
+          <input type="text" class="form-control" id="event-name" required ng-model="formItem.eventName">
+        </div>
+        <div class="form-group">
+          <label for="event-date">Date</label>
+          <input type="text" class="form-control" id="event-date" required ng-model="formItem.date">
+        </div>
+        <div class="form-group">
+          <label for="event-description">Description</label>
+          <textarea rows="5" type="in" class="form-control" id="event-description" required ng-model="formItem.description">
+          </textarea>
+        </div>
+        <div class="form-group">
+          <label for="event-hood">Select Background Color:</label>
+          <select class="form-control" id="event-hood" ng-model="formItem.hood">
+            <option value="#556270">Slate</option>
+            <option value="#4ECDC4">Teal Blue</option>
+            <option value="#C7F464">Apple</option>
+            <option value="#FF6B6B">Pink</option>
+            <option value="#C44D58">Red</option>
+            <option value="#00A8C6">Blue</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="event-pic">Select Icon:</label>
+          <select  class="form-control" id="event-pic" ng-model="formItem.pic" required>
+            <option value="" selected disabled>Please select</option>
+            <option value="apple" >Apple</option>
+            <option value="barbecue" >Barbecue</option>
+            <option value="bicycle" >Bicycle</option>
+            <option value="birthday" >Birthday</option>
+            <option value="cat" >Cat</option>
+            <option value="confetti" >Confetti</option>
+            <option value="cosmetics" >Cosmetics</option>
+            <option value="cutlery" >Cutlery</option>
+            <option value="dog" >Dog</option>
+            <option value="doughnut" >Doughnut</option>
+            <option value="flower" >Flower</option>
+            <option value="foodstand" >Foodstand</option>
+            <option value="foodtruck" >Foodtruck</option>
+            <option value="groceries" >Groceries</option>
+            <option value="hamburger" >Hamburger</option>
+            <option value="hanger" >Hanger</option>
+            <option value="hotdrink" >Hotdrink</option>
+            <option value="leaf" >Leaf</option>
+            <option value="music1" >Music1</option>
+            <option value="music2" >Music2</option>
+            <option value="paperplane">Paperplane</option>
+            <option value="pricetag" >Pricetag</option>
+            <option value="sale" >Sale</option>
+            <option value="shoe" >Shoe</option>
+            <option value="stage" >Stage</option>
+            <option value="star" >Star</option>
+            <option value="store" >Store</option>
+            <option value="sunbathe" >Sunbathe</option>
+            <option value="tech" >Tech</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-lg btn-default" data-toggle="modal" data-target="#postModal">Add Event</button>
+      </form>
+    </div>
+
+    <div style="background-color: {{formItem.hood}};" ng-show="formItem.user || formItem.eventName || formItem.date || formItem.description ||formItem.pic"  class="col-xs-4" id="live-preview">
+      <h2>{{formItem.eventName}}</h2>
+      <h2>{{formItem.user}}</h2>
+      <img id="preview-icon" src="img/{{formItem.pic}}.png">
+      <h4>{{formItem.date}}</h4>
+      <p>{{formItem.description}}</p>
+    </div>
+  </div >
+
+
+        <div ng-show="submissionSuccess">It worked! your post ID is{{postIDShow}}</div>
       </div>
 
-</div>
 
 
 <!-- <div class="row">
@@ -114,4 +131,4 @@
               <button type="submit" class="btn btn-lg btn-default">Add Event</button>
           </form>
       </div>
-</div> -->
+    </div> -->

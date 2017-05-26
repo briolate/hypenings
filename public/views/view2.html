@@ -1,6 +1,15 @@
 
 <div class="container">
- <h2>Search Events by Neighborhood</h2>
+	<div id="mapHolder" class="col-xs-8">
+		<div ng-controller="mapController" id="map"></div>
+	</div>
+</div>
+
+
+
+
+<div class="container">
+ <h2>Events near you</h2>
 <!-- <div class="col-xs-6" ng-controller="myController"> -->
 	<!-- <form ng-submit="searchHood(hood)" class="well">
 		<div class="form-group">
@@ -13,27 +22,31 @@
 			</select>
 		</div>
 	</form> -->
-<div  class="col-xs-6" ng-controller="mapController">
+
+
+
+<div   ng-controller="mapController">
+
 	<div id="flyerRow" class="row">
 
-    <div class="item" ng-repeat="event in events" ng-style="{{event.hood}}">
-				<a href="#">
-      <div class="well">
+    <div  class="item" class="col-xs-5" ng-repeat="event in events" >
+
+      <div style="background-color: #D3D3D3; background-color: {{event.hood}};">
 				<h2>{{event.eventname}}</h2>
 				<h4>{{event.username}}</h4><br />
 				<img src="img/{{event.pic}}.png">
 				<h4>{{event.date}}</h4>
 				<p>{{event.description}}</p>
-				<p><small class="text-muted">Event added on {{event.timeadded | date:"MM/dd 'at' h:mma"}}</small></p>
+				<!-- <p><small class="text-muted">Event added on {{event.timeadded | date:"MM/dd 'at' h:mma"}}</small></p> -->
+				<p><small class="text-muted">Expires on {{event.expTime}}</small></p>
 			  </div>
-					</a>
+
     </div>
   </div>
 </div>
 
 
 
-	<div class="col-xs-6">
-		<div ng-controller="mapController" id="map"></div>
-	</div>
+
+
 </div>

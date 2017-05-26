@@ -1,10 +1,18 @@
 /*Redesign additions...*/
+#mapHolder{
+  width: 100%;
+  margin: auto;
+  /*position: fixed;*/
+
+}
 
 #map {
   /*float: right;
   margin-right: 10px;*/
   height: 50vh;
-  width: 45vw;
+  width: 100%;
+  margin: auto;
+
 }
 
 #head {
@@ -296,6 +304,10 @@ body {
 
 }
 
+#preview-icon {
+    height: 100px;
+  width: auto;
+}
 
 
 
@@ -305,7 +317,7 @@ body {
   width: auto;
 }
 
-#flyerRow.row {
+#flyerRow {
  -moz-column-width: 18em;
  -webkit-column-width: 18em;
  -moz-column-gap: 1em;
@@ -317,19 +329,23 @@ body {
  display: inline-block;
  padding:  .25rem;
  width:  100%;
- box-sizing:  border-box !important;
+ box-sizing:  border-box;
 }
 
-.well {
+#flyerRow .well {
  position:relative;
  display: block;
- box-sizing:  border-box !important;
+ box-sizing:  border-box;
 }
 
-.well, h2{
+#flyerRow .well, h2{
   /*display: inline-block;*/
   text-shadow: none;
   font-family: Helvetica, Sans-Serif;
+}
+
+#flyerRow .well, h2, h4, p{
+  color: black;
 }
 
 /*.thumbnail, h2{
@@ -434,4 +450,7 @@ h3 span {
   list-style: none;
   text-align: center;
   font-size: 20px;
+}
+
+#live-preview {
 }

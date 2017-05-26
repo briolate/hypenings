@@ -7,19 +7,37 @@ app.controller("myController", function ($scope, eventService) {
 	$scope.searchForm = {};
 	$scope.flyers = [];
 	$scope.submissionSuccess = false;
+	$scope.timeLeft=0;
+	$scope.times=[];
+	$scope.postIDShow;
  // getLocation();
 	$scope.addEvent = function(item) {
 		item.lat = $scope.lat;
 		item.long = $scope.long;
+		//postid generator
+		function random(){
+		var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+    var string_length = 12;
+    var genPostID = '';
+		for (var i=0; i<string_length; i++) {
+            var rnum = Math.floor(Math.random() * chars.length);
+            genPostID += chars.substring(rnum,rnum+1);
+        }
+				return genPostID;
+		}
+		$scope.postIDShow=random();
+		item.postid=$scope.postIDShow;
+		console.log(item);
 		eventService.addEvent(item).then(function() {
 			console.log($scope.formItem);
 
-			console.log(item);
+			// console.log(item);
 			$scope.submissionSuccess = true;
 		});
 		$scope.formItem = {};
 	}
 
+	
 
 	// function getEvents () {
 	// 	eventService.getLocalEvents().then(function(eventArr) {
