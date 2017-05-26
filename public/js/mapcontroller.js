@@ -6,30 +6,22 @@ app.controller('mapController', function($scope, eventService) {
   $scope.events;
   $scope.times=[];
   var map, infoWindow;
-
+//initMap() shows our google map and also gets user current location
   function initMap() {
-     var styledMapType = new google.maps.StyledMapType(
-        [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}]
-      );
-
-
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 42.3314, lng: -83.0458},
-      zoom: 14,
-        mapTypeControlOptions: {
-            mapTypeIds: ['styled_map']
-          }
+      zoom: 14
     });
     infoWindow = new google.maps.InfoWindow;
 
-    // Try HTML5 geolocation.
+    // Try HTML5 geolocation. Gets current location
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         var pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-
+// adds marker for current location
         var marker = new google.maps.Marker({
           position:{lat:position.coords.latitude, lng:position.coords.longitude},
           icon: '../img/blueCir.png',
@@ -49,8 +41,6 @@ app.controller('mapController', function($scope, eventService) {
       // Browser doesn't support Geolocation
       handleLocationError(false, infoWindow, map.getCenter());
     }
-    map.mapTypes.set('styled_map', styledMapType);
-        map.setMapTypeId('styled_map')
   }
 
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -62,9 +52,11 @@ app.controller('mapController', function($scope, eventService) {
     }
 
     initMap();
+// getEvents() pulls in events in users area
 
     $scope.getEvents = function() {
       eventService.getLocalEvents($scope.lat, $scope.long).then(function(response) {
+        //this for loop runs a calc to figure out when posts expire and pushes data into the response from the database
         for (var i = 0;i < response.length; i++) {
           var timestamp = response[i].timeadded;
           var unix_seconds = ((new Date(timestamp)).getTime());
@@ -82,7 +74,7 @@ app.controller('mapController', function($scope, eventService) {
         console.log(eventArr);
         console.log($scope.events);
 
-
+//get's current location to draw a visual radius around the user's marker on the map
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
@@ -103,7 +95,7 @@ app.controller('mapController', function($scope, eventService) {
             center: pos,
             radius: 1609.34
           });
-
+//this for loop generates markers for each event and adds desired information into the info window
             for(i=0; i < eventArr.length; i++){
               //   var contentString='eventArr.eventname';
               //   var infowindow = new google.maps.InfoWindow({
@@ -119,8 +111,8 @@ app.controller('mapController', function($scope, eventService) {
                 hood: eventArr[i].hood
               });
 
-              // markerArray.push(marker);
 
+// this function shows or hides infowindow based on mouseover or mouseout
               (function(marker, i) {
                 google.maps.event.addListener(marker, 'mouseover', function() {
                   infowindow = new google.maps.InfoWindow({
@@ -136,12 +128,7 @@ app.controller('mapController', function($scope, eventService) {
               })(marker, i);
 
             }
-            //
-            // marker.addListener('click', function() {
-            //   console.log(marker);
-            //   infoWindow.open(map, marker);
-            //   infoWindow.setContent("<div class='markerInfo'>"+marker.title+"<br>"+marker.date+"<br>"+ marker.hood+"</div>");
-            // });
+
 
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -157,6 +144,7 @@ app.controller('mapController', function($scope, eventService) {
     }
 
 // $scope.getEvents();
+//get lat and long to pass on
 getLocation();
 function getLocation () {
   eventService.getAllEvents().then(function(eventArr) {

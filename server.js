@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 // var pool = require("./pg-connection-pool");
 var pool = new pg.Pool({
     user: "postgres",
-    password: 'Zambia',
+    password: 'quentin',
     host: "localhost",
     port: 5432,
     database: "postgres",
@@ -46,11 +46,13 @@ app.get('/events', function(req, res) {
     });
 });
 
+// getting user's lat and long, showing events within their radius (1 mile) and events that haven't expire yet
 app.get('/localevents', function(req, res) {
     var lat = req.query.lat;
     var lng = req.query.lng;
     var values = [lat, lng]
-    var sql = "select * from (SELECT * , (3959 * acos (cos ( radians($1::real) )* cos( radians( lat ) )* cos( radians( lng )- radians($2::real) )+ sin ( radians($1::real) )* sin( radians( lat ) ))) AS distance FROM events)AS distance where distance < 1 AND timeadded + INTERVAL '24 HOUR' > now()";
+    //this sql variable selects from the data base events that are within our given radius and also within our expiration perameters.  
+    var sql = "select * from (SELECT * , (3959 * acos (cos ( radians($1::real) )* cos( radians( lat ) )* cos( radians( lng )- radians($2::real) )+ sin ( radians($1::real) )* sin( radians( lat ) ))) AS distance FROM events)AS distance where distance < 1 AND timeadded + INTERVAL '48 HOUR' > now()";
 
     console.log("lat = " + lat);
     console.log("lng = " + lng);
