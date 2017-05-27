@@ -10,8 +10,11 @@ app.config(function($routeProvider) {
       controller: 'myController'
 
     }).when('/view3', {
-      templateUrl: 'views/view3.html',
+      templateUrl: 'views/view3.html'
 
+    }).when('/view4', {
+      templateUrl: 'views/view4.html',
+      controller: 'myController'
     })
     .otherwise('/view1');
   });
