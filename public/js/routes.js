@@ -12,6 +12,9 @@ app.config(function($routeProvider) {
     }).when('/view3', {
       templateUrl: 'views/view3.html',
 
+    }).when('/submitted', {
+      templateUrl: 'views/submit.html',
+
     })
     .otherwise('/view1');
   });
