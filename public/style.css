@@ -85,15 +85,9 @@ textarea {
 
 .top {
   height:0;
-  border-width:0 0 150px 400px;
+  border-width:0 0 60px 400px;
   border-style:solid;
   border-color:transparent #fd8469 #fd8469 transparent;
-  opacity: .7;
-}
-
-.bottom {
-  height: 50px;
-  background-color:#fd8469;
   opacity: .7;
 }
 
