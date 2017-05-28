@@ -1,6 +1,6 @@
 var app = angular.module("ourApp");
 
-app.controller("myController", function ($scope, eventService) {
+app.controller("myController", function ($scope, eventService, $location) {
 	$scope.lat=0;
 	$scope.long=0;
 	$scope.formItem = {};
@@ -39,6 +39,7 @@ app.controller("myController", function ($scope, eventService) {
 			$scope.submissionSuccess = true;
 		});
 		$scope.formItem = {};
+		$location.url('submitted');
 	
 	}
 $scope.manageEvent = function(userPostid){
@@ -110,3 +111,4 @@ $scope.deleteEvent = function(userPostid){
 		}
 
 	});
+
