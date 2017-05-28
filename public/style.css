@@ -14,6 +14,13 @@
   margin: auto;
 
 }
+.markerInfo{
+  color: black;
+}
+.markerIcons{
+  height: 50px;
+  width: auto;
+}
 
 #head {
   color: #05386B;
@@ -485,4 +492,15 @@ h3 span {
 }
 
 #live-preview {
+}
+
+#live-Preview-Delete-View{
+  margin: auto;
+  width: 30vw;
+  height: 50vh;
+}
+
+#live-Preview-Delete-View.#live-preview{
+  width: 30vw;
+  height: 50vh;
 }

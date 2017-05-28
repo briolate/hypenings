@@ -1,0 +1,55 @@
+<div class="container-fluid" >
+
+  <!-- live preview -->
+  <div id="live-Preview-Delete-View" ng-hide='deleted' ng-controller='myController' ng-repeat='event in postToManage'>
+    <p>hello {{event.username}}</p>
+    <div style="background-color: {{event.hood}};" ng-show="event.user || event.eventName || event.date || event.description ||event.pic"  id="live-preview">
+      <h2>{{event.eventName}}</h2>
+      <h2>{{event.user}}</h2>
+      <img id="preview-icon" src="img/{{event.pic}}.png">
+      <h4>{{event.date}}</h4>
+      <p>{{event.description}}</p>
+    </div>
+  </div>
+
+
+  <div class="row">
+
+
+    <div id="formBox" ng-hide="submissionSuccess || !eventFound" class="col-xs-4 col-xs-offset-4">
+      <h2>Manage Your Event</h2>
+      <form ng-submit="manageEvent(userPostid)">
+        <div class="form-group">
+          <label for="event-user">post id</label>
+          <input type="text" class="form-control" id="userPostid" required ng-model="userPostid">
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-default">manage event</button>
+      </form>
+    </div>
+
+    <!--not found  -->
+    <div id="formBox" ng-show="!eventFound" class="col-xs-4 col-xs-offset-4">
+      <h2>Event not found.</h2>
+      <form ng-submit="manageEvent(userPostid)">
+        <div class="form-group">
+          <label for="event-user">post id</label>
+          <input type="text" class="form-control" id="userPostid" required ng-model="userPostid">
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-default">manage event</button>
+      </form>
+    </div>
+    <!--delete confirm  -->
+    <div ng-show="submissionSuccess">  <div id="formBox" class="col-xs-4 col-xs-offset-4">
+        <h2>delete your event?</h2>
+        <form ng-submit="deleteEvent(userPostid)">
+          <div class="form-group">
+            <label for="event-user">post id</label>
+            <input type="text" class="form-control" id="userPostid" required ng-model="userPostid">
+          </div>
+
+          <button type="submit" class="btn btn-lg btn-default">delete Event</button>
+        </form>
+      </div></div>
+  </div>

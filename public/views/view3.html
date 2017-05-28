@@ -5,6 +5,10 @@
 
     <div id="formBox" class="col-xs-4 col-xs-offset-4">
       <h2>Add Event</h2>
+      <my-flyer></my-flyer>
+      
+      
+
       <form ng-submit="addEvent(formItem)">
         <div class="form-group">
           <label for="event-user">Name</label>
@@ -16,7 +20,18 @@
         </div>
         <div class="form-group">
           <label for="event-date">Date</label>
-          <input type="text" class="form-control" id="event-date" required ng-model="formItem.date">
+          <input type="date"
+          ng-model="formItem.date"
+          id="event-date"
+
+          [name="string"]
+          [min="string"]
+          [max="string"]
+          [ng-min=""]
+          [ng-max=""]
+          [required="string"]
+          [ng-required="string"]
+          [ng-change="string"]>
         </div>
         <div class="form-group">
           <label for="event-description">Description</label>
@@ -69,22 +84,18 @@
             <option value="tech" >Tech</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-lg btn-default" data-toggle="modal" data-target="#postModal">Add Event</button>
+        <button type="submit" href="#!/submit" class="btn btn-lg btn-default" data-toggle="modal" data-target="#postModal">Add Event</button>
       </form>
     </div>
 
+
     <div style="background-color: {{formItem.hood}};" ng-show="formItem.user || formItem.eventName || formItem.date || formItem.description ||formItem.pic"  class="col-xs-4" id="live-preview">
-      <h2>{{formItem.eventName}}</h2>
-      <h2>{{formItem.user}}</h2>
-      <img id="preview-icon" src="img/{{formItem.pic}}.png">
-      <h4>{{formItem.date}}</h4>
-      <p>{{formItem.description}}</p>
-    </div>
+      <flyer></flyer>
   </div >
 
 
-        <div ng-show="submissionSuccess">It worked! your post ID is{{postIDShow}}</div>
-      </div>
+  <div ng-show="submissionSuccess">It worked! your post ID is <b>{{postIDShow}}</b></div>
+</div>
 
 
 

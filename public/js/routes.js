@@ -10,11 +10,22 @@ app.config(function($routeProvider) {
       controller: 'myController'
 
     }).when('/view3', {
-      templateUrl: 'views/view3.html',
+      templateUrl: 'views/view3.html'
 
+<<<<<<< HEAD
     }).when('/register', {
       templateUrl: 'views/register.html',
 
+=======
+    }).when('/submitted', {
+      templateUrl: 'views/submit.html',
+
+
+    }).when('/view4', {
+      templateUrl: 'views/view4.html',
+      controller: 'myController'
+>>>>>>> d2a0444fa8b006f8bfe09db65f60ebd1dae8f245
     })
+    
     .otherwise('/view1');
   });
