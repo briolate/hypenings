@@ -1,6 +1,6 @@
 var app = angular.module("ourApp");
 
-app.controller("myController", function ($scope, eventService) {
+app.controller("myController", function ($scope, eventService, $location) {
 	$scope.lat=0;
 	$scope.long=0;
 	$scope.formItem = {};
@@ -15,19 +15,19 @@ app.controller("myController", function ($scope, eventService) {
 	$scope.userPostid="";
 	$scope.postToManage=[];
  // getLocation();
-	$scope.addEvent = function(item) {
-		item.lat = $scope.lat;
-		item.long = $scope.long;
+ $scope.addEvent = function(item) {
+ 	item.lat = $scope.lat;
+ 	item.long = $scope.long;
 		//postid generator
 		function random(){
-		var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
-    var string_length = 12;
-    var genPostID = '';
-		for (var i=0; i<string_length; i++) {
-            var rnum = Math.floor(Math.random() * chars.length);
-            genPostID += chars.substring(rnum,rnum+1);
-        }
-				return genPostID;
+			var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+			var string_length = 12;
+			var genPostID = '';
+			for (var i=0; i<string_length; i++) {
+				var rnum = Math.floor(Math.random() * chars.length);
+				genPostID += chars.substring(rnum,rnum+1);
+			}
+			return genPostID;
 		}
 		$scope.postIDShow=random();
 		item.postid=$scope.postIDShow;
@@ -39,6 +39,8 @@ app.controller("myController", function ($scope, eventService) {
 			$scope.submissionSuccess = true;
 		});
 		$scope.formItem = {};
+		$location.url('submitted');
+	
 	}
 $scope.manageEvent = function(userPostid){
 	console.log(userPostid);
@@ -87,25 +89,26 @@ $scope.deleteEvent = function(userPostid){
 	function getLocation () {
 
 
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(function(position) {
-					var pos = {
-						lat: position.coords.latitude,
-						lng: position.coords.longitude
-					};
-					$scope.lat = pos.lat;
-					$scope.long = pos.lng;
-					eventService.getLocalEvents($scope.lat,$scope.long);
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+				var pos = {
+					lat: position.coords.latitude,
+					lng: position.coords.longitude
+				};
+				$scope.lat = pos.lat;
+				$scope.long = pos.lng;
+				eventService.getLocalEvents($scope.lat,$scope.long);
 
-				}, function() {
-					handleLocationError(true, infoWindow, map.getCenter());
-				});
-			} else {
+			}, function() {
+				handleLocationError(true, infoWindow, map.getCenter());
+			});
+		} else {
 				// Browser doesn't support Geolocation
 				handleLocationError(false, infoWindow, map.getCenter());
 			}
 
 
-	}
+		}
 
-});
+	});
+
