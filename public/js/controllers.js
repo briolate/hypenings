@@ -7,9 +7,13 @@ app.controller("myController", function ($scope, eventService) {
 	$scope.searchForm = {};
 	$scope.flyers = [];
 	$scope.submissionSuccess = false;
+	$scope.eventFound = true;
+	$scope.deleted=false;
 	$scope.timeLeft=0;
 	$scope.times=[];
 	$scope.postIDShow;
+	$scope.userPostid="";
+	$scope.postToManage=[];
  // getLocation();
  $scope.addEvent = function(item) {
  	item.lat = $scope.lat;
@@ -37,9 +41,30 @@ app.controller("myController", function ($scope, eventService) {
 		$scope.formItem = {};
 	
 	}
+$scope.manageEvent = function(userPostid){
+	console.log(userPostid);
+	eventService.manageEvent(userPostid).then(function(response) {
+		if (response.length === 0){
+			console.log('nothing here');
+			$scope.eventFound = false;
+		}else{
+		$scope.postToManage = response;
+		console.log($scope.postToManage);
+		// console.log(item);
+		$scope.submissionSuccess = true;
+	}
+	});
+	$scope.formItem = {};
 
-	
+}
 
+$scope.deleteEvent = function(userPostid){
+	console.log(userPostid);
+	eventService.deleteEvent(userPostid).then(function(response){
+		console.log('DELETED')
+		$scope.deleted=true;
+	})
+}
 	// function getEvents () {
 	// 	eventService.getLocalEvents().then(function(eventArr) {
 	// 		$scope.events = eventArr;

@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 // var pool = require("./pg-connection-pool");
 var pool = new pg.Pool({
     user: "postgres",
-    password: 'Zambia',
+    password: 'quentin',
     host: "localhost",
     port: 5432,
     database: "postgres",
@@ -63,7 +63,35 @@ app.get('/localevents', function(req, res) {
         console.log(err);
     });
 });
+//get posted event
+app.get('/managepost', function(req, res) {
+    var userPostid = req.query.postid;
+    var values = [userPostid];
+    //this sql variable selects from the data base events that are within our given radius and also within our expiration perameters.
+    var sql = "select * from events where postid = $1::text";
 
+    console.log(values);
+    pool.query(sql, values).then(function(result) {
+      if(result.rowCount === 0){
+        res.send(result.rows);
+        console.log('not found');
+      }else{
+        res.send(result.rows);
+        console.log(result.rows);
+      }
+    }).catch(function(err) {
+        console.log(err);
+    });
+});
+
+app.delete('/deletepost', function(req, res) {
+    var userPostid = req.query.postid;
+    var sql = "DELETE FROM events WHERE postid = $1::text";
+    var values= [userPostid]; // <-- This gets the :id part of the URL
+    pool.query(sql, values).then(function() {
+        res.send("DELETED");
+    }).catch(res);
+});
 
 
 

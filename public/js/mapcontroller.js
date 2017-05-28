@@ -10,7 +10,8 @@ app.controller('mapController', function($scope, eventService) {
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 42.3314, lng: -83.0458},
-      zoom: 14
+      zoom: 14,
+      scrollwheel: false
     });
     infoWindow = new google.maps.InfoWindow;
 
@@ -108,7 +109,8 @@ app.controller('mapController', function($scope, eventService) {
                 map:map,
                 title: eventArr[i].eventname,
                 date: eventArr[i].date,
-                hood: eventArr[i].hood
+                hood: eventArr[i].hood,
+                pic: eventArr[i].pic
               });
 
 
@@ -116,7 +118,7 @@ app.controller('mapController', function($scope, eventService) {
               (function(marker, i) {
                 google.maps.event.addListener(marker, 'mouseover', function() {
                   infowindow = new google.maps.InfoWindow({
-                    content: "<div class='markerInfo'>"+marker.title+"<br>"+marker.date+"<br>"+ marker.hood+"</div>"
+                    content: "<div class='markerInfo'>"+marker.title+"<br>"+marker.date+"<br><img class='markerIcons' src='"+ "img/"+marker.pic+".png'></div>"
                   });
                   infowindow.open(map, marker);
                 });
