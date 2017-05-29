@@ -65,6 +65,20 @@
       return promise;
     };
 
+    this.getEventById = function(id){
+      var eventArr = [];
+      var promise = $http({
+        method: 'GET',
+        url:'/viewpost?id=' + id
+      }).then(function successCallback(response){
+        eventArr=response.data;
+        return eventArr;
+      }, function errorCallback(response){
+        console.log('error');
+      });
+      return promise;
+    };
+
     this.deleteEvent = function(userPostid) {
         // DELETE /api/items/{ID}
         return $http.delete('/deletepost?postid='+ userPostid).then(function(response){
@@ -75,3 +89,5 @@
     }
 
 });
+
+

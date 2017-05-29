@@ -24,6 +24,17 @@ app.config(function($routeProvider) {
       controller: 'myController'
     })
 
+
+    .when('/search', {
+      templateUrl: 'views/search.html',
+      controller: 'searchController'
+    })
+
+    .when('/event', {
+      templateUrl: 'views/event.html',
+      controller: 'eventPageController'
+    })
+
     .otherwise('/view1');
     
   });
