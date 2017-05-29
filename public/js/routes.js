@@ -30,6 +30,11 @@ app.config(function($routeProvider) {
       controller: 'searchController'
     })
 
+    .when('/event', {
+      templateUrl: 'views/event.html',
+      controller: 'eventPageController'
+    })
+
     .otherwise('/view1');
     
   });

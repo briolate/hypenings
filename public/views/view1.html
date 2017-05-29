@@ -19,21 +19,21 @@
 
 <!-- Most recent row -->
 <div class="row">
-    <div class="col-xs-4" style="background-color: #D3D3D3; background-color: {{recentEvents[0].hood}};">
+    <div ng-click="goToEvent(recentEvents[0].id)" class="col-xs-4" style="background-color: #D3D3D3; background-color: {{recentEvents[0].hood}};">
         <h2>{{recentEvents[0].eventname}}</h2>
         <h4>{{recentEvents[0].username}}</h4><br />
         <img class="preview-icon" src="img/{{recentEvents[0].pic}}.png">
         <h4>{{recentEvents[0].date}}</h4>
         <p>{{recentEvents[0].description}}</p>
     </div>
-   <div class="col-xs-4" style="background-color: #D3D3D3; background-color: {{recentEvents[1].hood}};">
+   <div ng-click="goToEvent(recentEvents[1].id)" class="col-xs-4" style="background-color: #D3D3D3; background-color: {{recentEvents[1].hood}};">
         <h2>{{recentEvents[1].eventname}}</h2>
         <h4>{{recentEvents[1].username}}</h4><br />
         <img class="preview-icon" src="img/{{recentEvents[1].pic}}.png">
         <h4>{{recentEvents[1].date}}</h4>
         <p>{{recentEvents[1].description}}</p>
     </div>
-    <div class="col-xs-4" style="background-color: #D3D3D3; background-color: {{recentEvents[2].hood}};">
+    <div ng-click="goToEvent(recentEvents[2].id)" class="col-xs-4" style="background-color: #D3D3D3; background-color: {{recentEvents[2].hood}};">
         <h2>{{recentEvents[2].eventname}}</h2>
         <h4>{{recentEvents[2].username}}</h4><br />
         <img class="preview-icon" src="img/{{recentEvents[2].pic}}.png">
