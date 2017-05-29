@@ -1,37 +1,44 @@
-<div class="cover-container">
-    <div class="inner cover">
-        <h1 class="cover-heading"><span id="head">HYPE</span>nings</h1>
-        <p class="subhead">See what's popping in Detroit <span id="head">or get something popping!</span></p>
-        <p class="buttons">
-          <a href="#!/view2" class="btn btn-lg btn-default">FIND</a>
-          <a href="#!/view3" class="btn btn-lg btn-default">POST</a>
-        </p>
-        <p class="sign-up-button">
-          <a href="#!/register" class="btn btn-lg btn-default">Sign Up</a>
-        </p>
-    </div>
-</div>
+<div ng-controller="homeController">
+    <div class="cover-container">
+        <div class="inner cover">
+            <h1 class="cover-heading"><span id="head">HYPE</span>nings</h1>
+            <p class="subhead">See what's popping in Detroit <span id="head">or get something popping!</span></p>
+            <p class="buttons">
+              <a href="#!/view2" class="btn btn-lg btn-default">FIND</a>
+              <a href="#!/view3" class="btn btn-lg btn-default">POST</a>
+          </p>
+          <p class="sign-up-button">
+              <a href="#!/register" class="btn btn-lg btn-default">Sign Up</a>
+          </p>
+      </div>
+  </div>
 
-<div class="shape">
+  <div class="shape">
     <div class="top"></div>
 </div>
 
 <!-- Most recent row -->
 <div class="row">
-    <div class="col-xs-4">
-        <a href="#">
-            <img class="img-responsive" src="http://placehold.it/400x400" alt="">
-        </a>
+    <div class="col-xs-4" style="background-color: #D3D3D3; background-color: {{recentEvents[0].hood}};">
+        <h2>{{recentEvents[0].eventname}}</h2>
+        <h4>{{recentEvents[0].username}}</h4><br />
+        <img class="preview-icon" src="img/{{recentEvents[0].pic}}.png">
+        <h4>{{recentEvents[0].date}}</h4>
+        <p>{{recentEvents[0].description}}</p>
     </div>
-    <div class="col-xs-4">
-        <a href="#">
-            <img class="img-responsive" src="http://placehold.it/400x400" alt="">
-        </a>
+   <div class="col-xs-4" style="background-color: #D3D3D3; background-color: {{recentEvents[1].hood}};">
+        <h2>{{recentEvents[1].eventname}}</h2>
+        <h4>{{recentEvents[1].username}}</h4><br />
+        <img class="preview-icon" src="img/{{recentEvents[1].pic}}.png">
+        <h4>{{recentEvents[1].date}}</h4>
+        <p>{{recentEvents[1].description}}</p>
     </div>
-    <div class="col-xs-4">
-        <a href="#">
-            <img class="img-responsive" src="http://placehold.it/400x400" alt="">
-        </a>
+    <div class="col-xs-4" style="background-color: #D3D3D3; background-color: {{recentEvents[2].hood}};">
+        <h2>{{recentEvents[2].eventname}}</h2>
+        <h4>{{recentEvents[2].username}}</h4><br />
+        <img class="preview-icon" src="img/{{recentEvents[2].pic}}.png">
+        <h4>{{recentEvents[2].date}}</h4>
+        <p>{{recentEvents[2].description}}</p>
     </div>
 </div>
 <!-- /.row -->
@@ -84,4 +91,5 @@
             bridge between your message and curious travelers.</p>
         </div>
     </div>
+</div>
 </div>

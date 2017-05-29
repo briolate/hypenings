@@ -25,4 +25,5 @@ app.config(function($routeProvider) {
     })
 
     .otherwise('/view1');
+    
   });
