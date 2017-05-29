@@ -20,6 +20,11 @@ app.config(function($routeProvider) {
       templateUrl: 'views/view4.html',
       controller: 'myController'
     })
+
+    .when('/search', {
+      templateUrl: 'views/search.html',
+      controller: 'searchController'
+    })
     
     .otherwise('/view1');
   });
