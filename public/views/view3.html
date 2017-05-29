@@ -34,6 +34,10 @@
           [ng-change="string"]>
         </div>
         <div class="form-group">
+          <label for="event-duration">Post Duration</label>
+          <input type='number' min='1' max= '48' step='1' class="form-control" id="event-date" required ng-model="formItem.postDuration">
+        </div>
+        <div class="form-group">
           <label for="event-description">Description</label>
           <textarea rows="5" type="in" class="form-control" id="event-description" required ng-model="formItem.description">
           </textarea>
@@ -97,6 +101,7 @@
   <div ng-show="submissionSuccess">It worked! your post ID is <b>{{postIDShow}}</b></div>
 </div>
 
+<a href="mailto:username@example.com?subject=Hypenings%20Event%20Information&body=Your%20post%20ID%20is%20{{postIDShow}}.%20don't%20loose%20it!">mail</a>
 
 
 <!-- <div class="row">
