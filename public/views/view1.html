@@ -1,15 +1,50 @@
-<div class="cover-container">
-    <div class="inner cover">
-        <h1 class="cover-heading"><span id="head">HYPE</span>nings</h1>
-        <p class="subhead">See what's popping in Detroit <span id="head">or get something popping!</span></p>
-        <p class="buttons">
-          <a href="#!/view2" class="btn btn-lg btn-default">FIND</a>
-          <a href="#!/view3" class="btn btn-lg btn-default">POST</a>
-        </p>
-    </div>
+<div ng-controller="homeController">
+    <div class="cover-container">
+        <div class="inner cover">
+            <h1 class="cover-heading"><span id="head">HYPE</span>nings</h1>
+            <p class="subhead">See what's popping in Detroit <span id="head">or get something popping!</span></p>
+            <p class="buttons">
+              <a href="#!/view2" class="btn btn-lg btn-default">FIND</a>
+              <a href="#!/view3" class="btn btn-lg btn-default">POST</a>
+          </p>
+          <p class="sign-up-button">
+              <a href="#!/register" class="btn btn-lg btn-default">Sign Up</a>
+          </p>
+      </div>
+  </div>
+
+  <div class="shape">
+    <div class="top"></div>
 </div>
 
-<div class="feauturette-container" ng-controller="homeController">
+<!-- Most recent row -->
+<div class="row">
+    <div class="col-xs-4" style="background-color: #D3D3D3; background-color: {{recentEvents[0].hood}};">
+        <h2>{{recentEvents[0].eventname}}</h2>
+        <h4>{{recentEvents[0].username}}</h4><br />
+        <img class="preview-icon" src="img/{{recentEvents[0].pic}}.png">
+        <h4>{{recentEvents[0].date}}</h4>
+        <p>{{recentEvents[0].description}}</p>
+    </div>
+   <div class="col-xs-4" style="background-color: #D3D3D3; background-color: {{recentEvents[1].hood}};">
+        <h2>{{recentEvents[1].eventname}}</h2>
+        <h4>{{recentEvents[1].username}}</h4><br />
+        <img class="preview-icon" src="img/{{recentEvents[1].pic}}.png">
+        <h4>{{recentEvents[1].date}}</h4>
+        <p>{{recentEvents[1].description}}</p>
+    </div>
+    <div class="col-xs-4" style="background-color: #D3D3D3; background-color: {{recentEvents[2].hood}};">
+        <h2>{{recentEvents[2].eventname}}</h2>
+        <h4>{{recentEvents[2].username}}</h4><br />
+        <img class="preview-icon" src="img/{{recentEvents[2].pic}}.png">
+        <h4>{{recentEvents[2].date}}</h4>
+        <p>{{recentEvents[2].description}}</p>
+    </div>
+</div>
+<!-- /.row -->
+
+<!-- featurette container -->
+<div class="feauturette-container">
 
     <!-- First Featurette -->
 
@@ -17,10 +52,14 @@
 
     <div class="featurette" id="feat1">
         <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
-        <h2 class="featurette-heading">{{homeEvents1.eventname}}
-            <span class="text-muted">{{homeEvents1.date}}</span>
-        </h2>
-        <p class="lead">{{homeEvents1.description}}</p>
+        <div class="featurette-text">
+          <h2 class="featurette-heading">FIND
+              <span class="text-muted">AND BE FOUND</span>
+          </h2><br>
+          <p class="lead">HYPEnings allows users to create digital flyers to a one mile radius
+            of wherever they're posted. Other users can then find these flyers with the app
+            upon entering its radius.</p>
+        </div>
     </div>
 
     <!-- <hr class="featurette-divider"> -->
@@ -28,12 +67,14 @@
     <!-- Second Featurette -->
     <div class="featurette" id="feat2">
         <img class="featurette-image img-circle img-responsive pull-left" src="http://placehold.it/500x500">
-        <h2 class="featurette-heading">{{homeEvents2.eventname}}
-            <span class="text-muted">{{homeEvents2.date}}</span>
-        
-
-        </h2>
-        <p class="lead">{{homeEvents2.description}}</p>
+        <div class="featurette-text2">
+          <h2 class="featurette-heading">EXPLORE
+              <span class="text-muted">YOUR CITY</span>
+          </h2><br>
+          <p class="lead">This symbiotic app encourages both local vendors to digitally promote
+            fleeting deals wherever the want and users to find them by exploring their
+            surroundings. But you gotta move! Flyers disappear 48 hours after posting.</p>
+        </div>
     </div>
 
     <!-- <hr class="featurette-divider"> -->
@@ -41,9 +82,14 @@
     <!-- Third Featurette -->
     <div class="featurette" id="feat3">
         <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
-        <h2 class="featurette-heading">{{homeEvents3.eventname}}
-            <span class="text-muted">{{homeEvents3.date}}</span>
-        </h2>
-        <p class="lead">{{homeEvents3.description}}</p>
+        <div class="featurette-text">
+          <h2 class="featurette-heading">SO...<br>
+              <span class="text-muted">GET OUT THERE!</span>
+          </h2><br>
+          <p class="lead">Whether you're a restaurant promoting a limited time menu, a retail store
+            pushing a BOGO sale, or a local artist advertising an upcoming show, HYPEnings is the perfect
+            bridge between your message and curious travelers.</p>
+        </div>
     </div>
+</div>
 </div>
