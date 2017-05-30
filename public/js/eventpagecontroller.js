@@ -6,7 +6,7 @@ app.controller('eventPageController', function($scope,eventService,$location) {
 	eventService.getEventById(eventId).then(function(response) {
 		$scope.viewEvent = response[0];
 	});
-
+	
 
 
  });
