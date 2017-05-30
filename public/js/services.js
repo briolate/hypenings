@@ -32,7 +32,7 @@
     });
       return promise;
     };
-
+//gets events within 1 mile radius and takes user lat and long
     this.getLocalEvents = function(lat,lng) {
         var eventArr = [];
         var promise = $http({
@@ -89,7 +89,7 @@
     }
 
 });
-
+//controller was reset so this takes care of that. gets and returns. puts postid onto submit page
 app.service("varShare", function() {
   var idShare;
   this.setId = function(id) {

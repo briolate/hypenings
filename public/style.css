@@ -1,3 +1,4 @@
+
 /*Redesign additions...*/
 
 #mapHolder{
@@ -15,13 +16,6 @@
   margin: 0;
 }
 
-#map {
-  /*float: right;
-  margin-right: 10px;*/
-  height: 50vh;
-  width: 100%;
-  margin: auto;
-}
 
 .markerInfo{
   color: black;
@@ -203,6 +197,9 @@ textarea {
     .featurette-divider {
         margin: 30px 0;
     }
+    .featurette-text, .featurette-text2 {
+        width: 250px;
+    }
 }
 
 @media(max-width:375px) {
@@ -368,7 +365,9 @@ body {
 }
 
 
-.live-Preview-Delete-View{
+
+#live-Preview-Delete-View {
+
   margin: auto;
   width: 30vw;
   height: 40vh;
@@ -377,23 +376,27 @@ body {
   width: 40%;
 }
 
+<<<<<<< HEAD
 .live-Preview-Delete-View.#live-preview{
+=======
+#live-Preview-Delete-View.#live-preview {
+>>>>>>> c3f42a81fac14378387d1f8d5d3bcea690ef1ab0
   width: 30vw;
   height: 50vh;
   margin: auto;
 }
 
 /*MAP STYLING*/
-#mapHolder{
+#mapHolder {
   /*width: 100%;
   margin: auto;*/
   /*position: relative;*/
-  /*z-index: 5;*/
+  z-index: 5;
   position: fixed;
-
-  width: 45%;
+  width: 35%;
   overflow-y: scroll;
   height: 100%;
+  margin-top: 40px;
 }
 
 #map {
@@ -412,8 +415,11 @@ body {
   overflow: auto;
 }*/
 #map-flyer-container {
-  overflow: hidden;
+  overflow: auto;
   height:100%;
+  padding: 0;
+  margin-left: 0;
+  margin-top: 30px;
 }
 
 
@@ -424,10 +430,10 @@ body {
   width: 25%;
 }*/
 #flyer-right {
-  height: 100%;
 
-
+    height: 100%;
    overflow-y: scroll;
+
 
 }
 
@@ -442,7 +448,7 @@ body {
  -moz-column-gap: 1em;
  -webkit-column-gap:1em;
  box-sizing:  border-box;
- width: 50%;
+ /*width: 100%;*/
  float: right;
 }
 
@@ -451,6 +457,8 @@ body {
  padding: .25rem;
  width: 100%;
  box-sizing:  border-box;
+ /*margin-left: 100%;*/
+ margin-top: 0;
 }
 
 .flyer-well {
@@ -559,6 +567,7 @@ h3 span {
 
 .cover {
   padding: 0 20px;
+  margin-top: 20px;
 }
 
 .cover .btn-lg {
@@ -618,7 +627,7 @@ Nav bar
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
   background-color: #05386B;
@@ -649,13 +658,17 @@ Nav bar
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
+  .sidenav {padding-top: 50px;}
   .sidenav a {font-size: 18px;}
 }
 
 #navButton {
   float: left;
   padding: 10px 0 0 10px;
+
+  display: block;
+  position: fixed;
+  z-index: 1;
 }
 
 /*
@@ -674,8 +687,6 @@ Old nav bar
 .masthead-nav {
   float: right;
 }
-<<<<<<< HEAD
-=======
 
 .masthead-nav > li,
 .masthead-brand > li {
@@ -702,4 +713,3 @@ Old nav bar
   color: #05386B;
 }
 }*/
->>>>>>> 2a37c3bd89801f722717bb7bde31bbafa3868e7c
