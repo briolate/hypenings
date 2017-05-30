@@ -12,6 +12,9 @@ app.config(function($routeProvider) {
     }).when('/view3', {
       templateUrl: 'views/view3.html'
 
+    }).when('/register', {
+      templateUrl: 'views/register.html',
+
     }).when('/submitted', {
       templateUrl: 'views/submit.html',
 
@@ -20,6 +23,18 @@ app.config(function($routeProvider) {
       templateUrl: 'views/view4.html',
       controller: 'myController'
     })
-    
+
+
+    .when('/search', {
+      templateUrl: 'views/search.html',
+      controller: 'searchController'
+    })
+
+    .when('/event', {
+      templateUrl: 'views/event.html',
+      controller: 'eventPageController'
+    })
+
     .otherwise('/view1');
+    
   });

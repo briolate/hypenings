@@ -1,6 +1,6 @@
 var app = angular.module('ourApp');
 
-app.controller('mapController', function($scope, eventService) {
+app.controller('mapController', function($scope, eventService, $location) {
   var markerArray = [];
   $scope.formItem = {};
   $scope.events;
@@ -175,5 +175,9 @@ function getLocation () {
 
   });
 }
+
+$scope.goToEvent = function (eventId) {
+    $location.url('/event?id=' + eventId);
+  }
 
   });

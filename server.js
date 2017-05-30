@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 // var pool = require("./pg-connection-pool");
 var pool = new pg.Pool({
     user: "postgres",
-    password: 'quentin',
+    password: 'Zambia',
     host: "localhost",
     port: 5432,
     database: "postgres",
@@ -90,6 +90,20 @@ app.get('/managepost', function(req, res) {
         res.send(result.rows);
         console.log(result.rows);
       }
+    }).catch(function(err) {
+        console.log(err);
+    });
+});
+
+app.get('/viewpost', function(req, res) {
+    var postId = req.query.id;
+    postId = Number(postId);
+    var values = [postId];
+    //this sql variable selects from the data base events that are within our given radius and also within our expiration perameters.
+    var sql = "select * from events where id = $1::int";
+
+    pool.query(sql, values).then(function(result) {
+      res.send(result.rows);
     }).catch(function(err) {
         console.log(err);
     });
