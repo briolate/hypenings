@@ -203,14 +203,15 @@ textarea {
     .featurette-divider {
         margin: 30px 0;
     }
-    .featurette-text, .featurette-text2 {
-        width: 250px;
-    }
 }
 
 @media(max-width:375px) {
     .featurette-divider {
         margin: 10px 0;
+    }
+
+    .featurette-text, .featurette-text2 {
+        width: 250px;
     }
 
     .featurette-image {
@@ -271,12 +272,11 @@ body {
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 
 .cover-container {
-  /*background-image: url('img/skyline1.png');*/
   background-repeat: no-repeat;
   background-position:left bottom;
   background-size: contain;
   bottom: 0;
-  /*background-attachment: fixed;*/
+  padding-top: 40px;
 }
 
 /* Padding for spacing */
