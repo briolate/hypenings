@@ -88,7 +88,12 @@
             <option value="tech" >Tech</option>
           </select>
         </div>
-        <button type="submit" href="#!/submit" class="btn btn-lg btn-default">Add Event</button>
+
+        <div class="form-group">
+          <label for="event-name">Email Address</label>
+          <input type="text" class="form-control" id="event-name" required ng-model="formItem.email">
+        <button type="submit" href="#!/submit" class="btn btn-lg btn-default" data-toggle="modal" data-target="#postModal">Add Event</button>
+
       </form>
     </div>
 
@@ -105,7 +110,7 @@
     </div>
 </div>
 
-<a href="mailto:username@example.com?subject=Hypenings%20Event%20Information&body=Your%20post%20ID%20is%20{{postIDShow}}.%20don't%20loose%20it!">mail</a>
+
 
 <!-- <div class="row">
       <div class="col-xs-5" class="container" ng-controller="myController">

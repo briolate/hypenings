@@ -34,13 +34,13 @@ app.controller("myController", function ($scope, eventService, $location) {
 		console.log(item);
 		eventService.addEvent(item).then(function() {
 			console.log($scope.formItem);
-			window.location.href = "mailto:.com?subject=Hypenings%20Event%20Information&body=Your%20post%20ID%20is%20 "+$scope.postIDShow+" .%20Don't%20loose%20it!%20Be%20sure%20to%20email%20this%20to%20yourself%20.";
+			
 			// console.log(item);
 			$scope.submissionSuccess = true;
 		});
 		$scope.formItem = {};
 		$location.url('submitted');
-	
+
 	}
 $scope.manageEvent = function(userPostid){
 	console.log(userPostid);
@@ -111,4 +111,3 @@ $scope.deleteEvent = function(userPostid){
 		}
 
 	});
-
