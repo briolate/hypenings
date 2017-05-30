@@ -4,6 +4,14 @@ const pg = require('pg');
 
 const app = express();
 
+// Mailjet variables etc
+var mailjet = require('node-mailjet').connect('7672f7d7861def0d58556c8fde5fd009', 'e46c285ea610edd14646958ed4ce3223');
+function handleError (err) {
+  throw new Error(err.ErrorMessage);
+}
+
+
+
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
@@ -26,8 +34,12 @@ function errorCallback(res) {
     }
 }
 
-app.post('/events', function(req, res) {
 
+
+
+app.post('/events', function(req, res) {
+// declaring function that adjust time stamp so that event posting goes away at desired time
+// function also makes another query to the database to make this adjustment
     var adjust=function(){
       var dur= event.postDuration;
       var user= event.user;
@@ -36,16 +48,33 @@ app.post('/events', function(req, res) {
       pool.query(sql, values).then(function() {
           console.log('yeah dude!');
       }).catch(errorCallback(res));
-
     }
+    // this function sends an email with users postid
+    function testEmail () {
+      console.log('this works');
+      email = {};
+      email['FromName'] = 'Hypenings Staff';
+      email['FromEmail'] = 'dogtindergc@gmail.com';
+      email['Subject'] = 'Your Post ID for Your Event ' + event.eventName;
+      email['Recipients'] = [{Email: event.email}];
+      email['Text-Part'] = 'Thank you for using Hypenings. Your post ID is ' + postid;
+
+      mailjet.post('send')
+        .request(email)
+        .catch(handleError);
+    }
+
+// declaring variables to post events
     var event = req.body;
-    var sql = "INSERT INTO events(userName, eventName, date, description, hood, pic, lat, lng, postid, postduration) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::text,$7::decimal, $8::decimal, $9::text, $10::smallint)";
-    var values = [event.user, event.eventName, event.date, event.description, event.hood, event.pic, event.lat, event.long, event.postid, event.postDuration];
+    var postid= event.postid;
+    var sql = "INSERT INTO events(userName, eventName, date, description, hood, pic, lat, lng, postid, postduration, email) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::text,$7::decimal, $8::decimal, $9::text, $10::smallint, $11::text)";
+    var values = [event.user, event.eventName, event.date, event.description, event.hood, event.pic, event.lat, event.long, event.postid, event.postDuration, event.email];
 
     pool.query(sql, values).then(function() {
         res.status(201);
         res.send("INSERTED");
         adjust();
+        testEmail();
     }).catch(errorCallback(res));
 });
 
@@ -140,8 +169,10 @@ pic VARCHAR(40),
 lat DECIMAL(11,8),
 lng DECIMAL(10,8),
 postduration SMALLINT,
-timeadded TIMESTAMP DEFAULT NOW(),
-postid VARCHAR(12)
+postid VARCHAR(12),
+email VARCHAR(40),
+timeadded TIMESTAMP DEFAULT NOW()
+
 );
 
 */
