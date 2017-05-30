@@ -1,4 +1,3 @@
-/*Redesign additions...*/
 #mapHolder{
   width: 100%;
   margin: auto;
@@ -378,13 +377,53 @@ body {
   height: 50vh;
 }
 
+/*MAP STYLING*/
+#mapHolder{
+  /*width: 100%;
+  margin: auto;*/
+  /*position: relative;*/
+  /*z-index: 5;*/
+  position: fixed;
 
+  width: 45%;
+  overflow-y: scroll;
+  height: 100%;
+}
+
+#map {
+  /*float: right;
+  margin-right: 10px;*/
+  height: 50vh;
+  width: 100%;
+  margin: auto;
+
+
+}
 
 /*flyer styles*/
 /*.flyer-container {
   margin-top: 375px;
   overflow: auto;
 }*/
+#map-flyer-container {
+  overflow: hidden;
+  height:100%;
+}
+
+
+/*.flyer-col{
+  height:100%;
+
+  overflow-y: scroll;
+  width: 25%;
+}*/
+#flyer-right {
+  height: 100%;
+
+
+   overflow-y: scroll;
+
+}
 
 #flyerRow img {
   height: 100px;
@@ -397,6 +436,8 @@ body {
  -moz-column-gap: 1em;
  -webkit-column-gap:1em;
  box-sizing:  border-box;
+ width: 50%;
+ float: right;
 }
 
 .item {
@@ -415,13 +456,13 @@ body {
   margin: 5px;
 }
 
-#flyerRow .flyer-well h2{
+#flyerRow .flyer-well, h2{
   /*display: inline-block;*/
   text-shadow: none;
   font-family: Helvetica, Sans-Serif;
 }
 
-#flyerRow .flyer-well h2, h4, p{
+#flyerRow .flyer-well, h2, h4, p{
   color: black;
 }
 
