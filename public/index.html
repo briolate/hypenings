@@ -20,6 +20,25 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <!-- favicon links -->
+    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
 </head>
 
 <body ng-app="ourApp">
@@ -27,6 +46,7 @@
       <nav id="mySidenav" class="sidenav">
           <a href="javasript:void(0)" class="closebtn"
             onclick="closeNav()">&times;</a>
+          <a href="#!/view1"><i class="fa fa-home fa-fw"></i></a>
           <a href="#!/view2"><i class="fa fa-location-arrow fa-fw"></i></a>
           <a href="#!/view3"><i class="fa fa-map-marker fa-fw"></i></a>
           <a href="#!/view4"><i class="fa fa-pencil-square-o fa-fw"></i></a>
@@ -34,7 +54,9 @@
           <a href="#"><i class="fa fa-twitter fa-fw"></i></a>
         </nav><!--end of sideNav-->
 
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">HERE</span>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">
+          <img src="img/apple-icon-76x76.png" id="navButton">
+        </span>
 
       <div id="wrap">
 
@@ -55,8 +77,6 @@
 
         <ng-view></ng-view>
 
-    </div>
-
     <footer class="footer">
         <p class="copyright">Copyright &copy; <a href="#">HYPEnings</a></p>
         <p class="social">
@@ -67,15 +87,18 @@
         </p>
     </footer>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBchGgIXmJDxGcbGbuQ15N537bwUn_-zq4"
-     type="text/javascript"></script>
-<script src="lib/angular.min.js"></script>
-<script src="lib/angular-route.min.js"></script>
-<script src="lib/ng-map.min.js"></script>
-<script src="lib/ui-bootstrap-tpls-2.5.0.min.js" charset="utf-8"></script>
+    </div>
 
-<script src="js/app.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBchGgIXmJDxGcbGbuQ15N537bwUn_-zq4"
+    type="text/javascript"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-route.min.js"></script>
+    <script src="lib/ng-map.min.js"></script>
+    <script src="lib/ui-bootstrap-tpls-2.5.0.min.js" charset="utf-8"></script>
+
+    <script src="js/app.js"></script>
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOnaTmhxrYprXqy9eTUbe8ioAD1vjG6zI"
+<<<<<<< HEAD
 async defer></script> -->
 
 <script type="text/javascript" src="js/routes.js"></script>
@@ -88,7 +111,6 @@ async defer></script> -->
 <script type="text/javascript" src="js/searchcontroller.js"></script>
 <script type="text/javascript" src="js/services.js"></script>
 <script type="text/javascript" src="js/sideNav.js"></script>
-
 
 
 </body>

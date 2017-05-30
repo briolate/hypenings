@@ -6,20 +6,33 @@
   z-index: 5;*/
 }
 
+/*.ng-scope div {
+  width: 100%;
+}*/
+
+.ng-scope .row {
+  margin: 0;
+}
+
 #map {
   /*float: right;
   margin-right: 10px;*/
   height: 50vh;
   width: 100%;
   margin: auto;
-
 }
+
 .markerInfo{
   color: black;
 }
+
 .markerIcons{
   height: 50px;
   width: auto;
+}
+
+.img-responsive {
+  margin: 0 auto;
 }
 
 #head {
@@ -38,13 +51,20 @@ textarea {
   margin: 40px;
 }
 
-.buttons {
-  padding-top: 40px;
-  padding-bottom: 20px;
+.subhead {
+  padding-top: 20px;
+  font-size: 24px;
 }
 
-.sign-up-button {
-  padding-bottom: 100px;
+@media(max-width:668px) {
+    .subhead {
+        font-size: 18px;
+    }
+}
+
+.buttons {
+  padding-top: 40px;
+  padding-bottom: 160px;
 }
 
 #feat1 {
@@ -74,28 +94,12 @@ textarea {
   padding-bottom: 40px;
 }
 
-.subhead {
-  font-size: 24px;
-}
-
-.shape {
-  width:100%;
-  margin:0 auto;
-}
-
-.top {
-  height:0;
-  border-width:0 0 60px 400px;
-  border-style:solid;
-  border-color:transparent #fd8469 #fd8469 transparent;
-  opacity: .7;
-}
-
-.top p {
+.latest p {
   color: #EDF5E1;
-  font-size: 40px;
+  font-size: 24px;
   font-weight: bold;
   letter-spacing: .1em;
+  background-color: #fd8469;
 }
 
 .featurette-text {
@@ -181,9 +185,9 @@ textarea {
 }
 
 @media(max-width:768px) {
-    .feauturette-container {
+    /*.feauturette-container {
         margin: 0 15px;
-    }
+    }*/
 
     .featurette-divider {
         margin: 40px 0;
@@ -195,7 +199,6 @@ textarea {
 }
 
 @media(max-width:668px) {
-
     .featurette-divider {
         margin: 30px 0;
     }
@@ -249,6 +252,7 @@ html {
 
 body {
   /*background-color: #5CDB95;*/
+  width: 100%;
   margin: 0 0 190px;
   background-image: url('/img/bokeh3.jpg');
   height: 100%;
@@ -530,18 +534,18 @@ h3 span {
  * Footer
  */
 
- footer {
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   width: 100%;
-   height: 190px;
-   background-image: url('img/detroit.png');
-   background-repeat: no-repeat;
-   background-size: cover;
-   color: #999;
-   color: rgba(255,255,255,.5);
- }
+footer {
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ width: 100%;
+ height: 190px;
+ background-image: url('img/detroit.png');
+ background-repeat: no-repeat;
+ background-size: cover;
+ color: #999;
+ color: rgba(255,255,255,.5);
+}
 
 .copyright {
   margin-top: 120px;
@@ -570,14 +574,14 @@ Nav bar
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #05386B;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
+  padding: 8px 8px 8px 8px;
   text-decoration: none;
   font-size: 25px;
   color: #818181;
@@ -586,7 +590,7 @@ Nav bar
 }
 
 .sidenav a:hover, .offcanvas a:focus{
-  color: #05386B;
+  color: #fd8469;
 }
 
 .sidenav .closebtn {
@@ -602,6 +606,11 @@ Nav bar
   .sidenav a {font-size: 18px;}
 }
 
+#navButton {
+  float: left;
+  padding: 10px 0 0 10px;
+}
+
 /*
 Old nav bar
 */
@@ -614,7 +623,7 @@ Old nav bar
   .masthead-brand {
     float: left;
   }
-  
+
 .masthead-nav {
   float: right;
 }
