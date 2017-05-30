@@ -1,6 +1,6 @@
 <h1>THANK YOU FOR SUBMITTING YOUR EVENT</h1>
 
-<div class="container-fluid" ng-controller="myController">
+<div class="container-fluid">
   <div class="row">
 
       <div id="successBox" class="col-xs-5">
@@ -18,8 +18,8 @@
               <p class="panel-msg">Your event was successfully created.</p>
             </div>
             <ul class="list-group">
-              <li class="list-group-item" ng-controller="myController">
-                <p>Your post ID is {{postIDShow}}.</p>  <!--this post id isn't showing up-->
+              <li class="list-group-item"  ng-controller="submitController">
+                <p>Your post ID is {{postId}}.</p>  <!--this post id isn't showing up-->
               </li>
 
           </div>

@@ -4,7 +4,7 @@ const pg = require('pg');
 
 const app = express();
 
-// Mailjet variables etc
+// Mailjet variables -api we use to send post id email to user
 var mailjet = require('node-mailjet').connect('7672f7d7861def0d58556c8fde5fd009', 'e46c285ea610edd14646958ed4ce3223');
 function handleError (err) {
   throw new Error(err.ErrorMessage);
@@ -15,7 +15,7 @@ function handleError (err) {
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-
+//pg connection for heroku
 // var pool = require("./pg-connection-pool");
 var pool = new pg.Pool({
     user: "postgres",
@@ -77,7 +77,7 @@ app.post('/events', function(req, res) {
         testEmail();
     }).catch(errorCallback(res));
 });
-
+//used for getting all events we use later for  recent events
 app.get('/events', function(req, res) {
     pool.query("SELECT * FROM Events").then(function(result) {
         res.send(result.rows);
@@ -124,6 +124,7 @@ app.get('/managepost', function(req, res) {
     });
 });
 
+//when user clicks post, they get more info on the specific event
 app.get('/viewpost', function(req, res) {
     var postId = req.query.id;
     postId = Number(postId);
@@ -149,7 +150,7 @@ app.delete('/deletepost', function(req, res) {
 
 
 
-
+//heroku port or localhost 
 var port = process.env.PORT || 5000;
 app.listen(port, function () {
     console.log('JSON Server is running on ' + port);

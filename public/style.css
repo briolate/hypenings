@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+/*Redesign additions...*/
+
+>>>>>>> 09f6e6c8716547951313de10f5affce496a4cee6
 #mapHolder{
   width: 100%;
   margin: auto;
@@ -369,15 +374,23 @@ body {
 }
 
 
+
 #live-Preview-Delete-View {
+
   margin: auto;
   width: 30vw;
-  height: 50vh;
+  height: 40vh;
+}
+#preview-icon{
+  width: 40%;
 }
 
+
 #live-Preview-Delete-View.#live-preview {
+
   width: 30vw;
   height: 50vh;
+  margin: auto;
 }
 
 /*MAP STYLING*/

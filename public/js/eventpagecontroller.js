@@ -8,7 +8,7 @@ app.controller('eventPageController', function($scope,eventService,$location) {
 	eventService.getEventById(eventId).then(function(response) {
 		$scope.viewEvent = response[0];
 	});
-	
+
 
 
 
@@ -48,8 +48,8 @@ app.controller('eventPageController', function($scope,eventService,$location) {
         // infoWindow.setContent('Location found.');
         // infoWindow.open(map);
         // console.log(pos);
-        map.setZoom(14);
-  
+        map.setZoom(17);
+
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
       });
@@ -71,7 +71,7 @@ app.controller('eventPageController', function($scope,eventService,$location) {
     $scope.getEvents = function() {
       eventService.getEventById(eventId).then(function(response) {
         //this for loop runs a calc to figure out when posts expire and pushes data into the response from the database
-        
+
           var timestamp = response[0].timeadded;
           var unix_seconds = ((new Date(timestamp)).getTime());
           var date=Date.now();
@@ -80,7 +80,7 @@ app.controller('eventPageController', function($scope,eventService,$location) {
           console.log(s.toLocaleString());
 
           response[0].expTime = (s.toLocaleString());
-        
+
 
     initMap();
         var eventArr = response;
@@ -97,16 +97,16 @@ app.controller('eventPageController', function($scope,eventService,$location) {
             console.log(pos);
             // console.log(eventArr);
 
-            var cityCircle = new google.maps.Circle({
-            strokeColor: '#7cdaf9',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#7cdaf9',
-            fillOpacity: 0.35,
-            map: map,
-            center: pos,
-            radius: 1609.34
-          });
+          //   var cityCircle = new google.maps.Circle({
+          //   strokeColor: '#7cdaf9',
+          //   strokeOpacity: 0.8,
+          //   strokeWeight: 2,
+          //   fillColor: '#7cdaf9',
+          //   fillOpacity: 0.35,
+          //   map: map,
+          //   center: pos,
+          //   radius: 1609.34
+          // });
 //this for loop generates markers for each event and adds desired information into the info window
             for(i=0; i < eventArr.length; i++){
               //   var contentString='eventArr.eventname';
