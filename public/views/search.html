@@ -1,0 +1,20 @@
+<h1>Serach</h1>
+
+<div class="row">
+	<div id="col-xs-2">
+		<label><i class="fa fa-search" aria-hidden="true"></i></label><input style="color: black;"id="search" type="text" ng-model="searchInput">
+	</div>
+
+	<div class="col-xs-5">
+	<span  class="item" ng-repeat="event in searchEvents | filter: searchInput | limitTo: 10" ng-show="searchInput">
+			<div style="background-color: #D3D3D3; background-color: {{event.hood}};">
+				<h2>{{event.eventname}}</h2>
+				<h4>{{event.username}}</h4><br />
+				<img class="preview-icon" src="img/{{event.pic}}.png">
+				<h4>{{event.date}}</h4>
+				<p>{{event.description}}</p>
+			</div>
+
+		</span>
+	</div>
+</div>

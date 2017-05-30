@@ -28,13 +28,24 @@ function errorCallback(res) {
 
 app.post('/events', function(req, res) {
 
+    var adjust=function(){
+      var dur= event.postDuration;
+      var user= event.user;
+      var values=[dur, user];
+      var sql = "UPDATE events SET timeadded = current_timestamp - ((48-$1::smallint)* interval '1 hour') where username = $2::text"
+      pool.query(sql, values).then(function() {
+          console.log('yeah dude!');
+      }).catch(errorCallback(res));
+
+    }
     var event = req.body;
-    var sql = "INSERT INTO events(userName, eventName, date, description, hood, pic, lat, lng, postid) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::text,$7::decimal, $8::decimal, $9::text)";
-    var values = [event.user, event.eventName, event.date, event.description, event.hood, event.pic, event.lat, event.long, event.postid];
+    var sql = "INSERT INTO events(userName, eventName, date, description, hood, pic, lat, lng, postid, postduration) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::text,$7::decimal, $8::decimal, $9::text, $10::smallint)";
+    var values = [event.user, event.eventName, event.date, event.description, event.hood, event.pic, event.lat, event.long, event.postid, event.postDuration];
 
     pool.query(sql, values).then(function() {
         res.status(201);
         res.send("INSERTED");
+        adjust();
     }).catch(errorCallback(res));
 });
 
@@ -84,6 +95,20 @@ app.get('/managepost', function(req, res) {
     });
 });
 
+app.get('/viewpost', function(req, res) {
+    var postId = req.query.id;
+    postId = Number(postId);
+    var values = [postId];
+    //this sql variable selects from the data base events that are within our given radius and also within our expiration perameters.
+    var sql = "select * from events where id = $1::int";
+
+    pool.query(sql, values).then(function(result) {
+      res.send(result.rows);
+    }).catch(function(err) {
+        console.log(err);
+    });
+});
+
 app.delete('/deletepost', function(req, res) {
     var userPostid = req.query.postid;
     var sql = "DELETE FROM events WHERE postid = $1::text";
@@ -114,6 +139,7 @@ hood VARCHAR(40),
 pic VARCHAR(40),
 lat DECIMAL(11,8),
 lng DECIMAL(10,8),
+postduration SMALLINT,
 timeadded TIMESTAMP DEFAULT NOW(),
 postid VARCHAR(12)
 );
