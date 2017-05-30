@@ -10,7 +10,7 @@ app.controller('mapController', function($scope, eventService, $location) {
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 42.3314, lng: -83.0458},
-      zoom: 14,
+      zoom: 11,
       scrollwheel: false
     });
     infoWindow = new google.maps.InfoWindow;
@@ -121,6 +121,7 @@ app.controller('mapController', function($scope, eventService, $location) {
                     content: "<div class='markerInfo'>"+marker.title+"<br>"+marker.date+"<br><img class='markerIcons' src='"+ "img/"+marker.pic+".png'></div>"
                   });
                   infowindow.open(map, marker);
+                  console.log('yo');
                 });
               })(marker, i);
               (function(marker, i) {

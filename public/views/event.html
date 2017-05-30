@@ -6,7 +6,7 @@
 	<div class="col-xs-4">
 		<div style="background-color: #D3D3D3; background-color: {{viewEvent.hood}};">
 			<h4>{{viewEvent.username}}</h4><br />
-			
+
 			<h4>{{viewEvent.date}}</h4>
 			<p>{{viewEvent.description}}</p>
 		</div>
@@ -16,5 +16,8 @@
 		<img class="preview-icon" src="img/{{viewEvent.pic}}.png">
 	</div>
 
-	<div id="map" class="col-xs-4"></div>
+	<!-- <div id="map" class="col-xs-4"></div> -->
+	<div id="mapHolder" class="col-xs-8">
+		<div ng-controller="eventPageController" id="map"></div>
+	</div>
 </div>
