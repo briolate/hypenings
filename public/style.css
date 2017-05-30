@@ -366,7 +366,7 @@ body {
   /*width: 100%;
   margin: auto;*/
   /*position: relative;*/
-  /*z-index: 5;*/
+  z-index: 5;
   position: fixed;
   width: 35%;
   overflow-y: scroll;
