@@ -14,6 +14,7 @@ app.controller("myController", function ($scope, eventService, $location) {
 	$scope.postIDShow;
 	$scope.userPostid="";
 	$scope.postToManage=[];
+	$scope.emailCheck = false;
  // getLocation();
  $scope.addEvent = function(item) {
  	item.lat = $scope.lat;
