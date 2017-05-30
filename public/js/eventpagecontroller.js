@@ -8,4 +8,5 @@ app.controller('eventPageController', function($scope,eventService,$location) {
 	});
 
 
+
  });
