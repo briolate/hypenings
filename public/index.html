@@ -23,9 +23,22 @@
 </head>
 
 <body ng-app="ourApp">
-    <div id="wrap">
 
-        <div class="masthead clearfix">
+      <nav id="mySidenav" class="sidenav">
+          <a href="javasript:void(0)" class="closebtn"
+            onclick="closeNav()">&times;</a>
+          <a href="#!/view2"><i class="fa fa-location-arrow fa-fw"></i></a>
+          <a href="#!/view3"><i class="fa fa-map-marker fa-fw"></i></a>
+          <a href="#!/view4"><i class="fa fa-pencil-square-o fa-fw"></i></a>
+          <a href="#!/search"><i class="fa fa-search fa-fw"></i></a>
+          <a href="#"><i class="fa fa-twitter fa-fw"></i></a>
+        </nav><!--end of sideNav-->
+
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">HERE</span>
+
+      <div id="wrap">
+
+        <!-- <div class="masthead clearfix">
             <div class="inner">
                 <h3 class="masthead-brand"><a href="#!/view1"><img src="img/ourLogo.png" id="logo"></a></h3>
                 <nav>
@@ -38,7 +51,7 @@
                     </ul>
                 </nav>
             </div>
-        </div>
+        </div> -->
 
         <ng-view></ng-view>
 
@@ -74,6 +87,7 @@ async defer></script> -->
 <script type="text/javascript" src="js/bgcolorcontroller.js"></script>
 <script type="text/javascript" src="js/searchcontroller.js"></script>
 <script type="text/javascript" src="js/services.js"></script>
+<script type="text/javascript" src="js/sideNav.js"></script>
 
 
 
