@@ -2,33 +2,36 @@
 <div id="map-flyer-container" class="container" ng-controller="mapController">
 	<div class="row">
 		<!-- MAP COLUMN   MAP COLUMN   MAP COLUMN   MAP COLUMN -->
-				 <div id="mapHolder" class="col-xs-6  map-col " >
+				 <div id="mapHolder" class="col-lg-6 col-xs-8 " >
 						<h2>Events near you</h2>
 					 <div id="map"></div>
 				 </div>
-
+</div>
 
 <!-- FLYER COLUMN FLYER COLUMN FLYER COLUMN -->
 
 
-		<div id="flyerRow"  ng-controller="mapController">
+		<div  ng-controller="mapController">
 
 				    <div  id="flyer-right" class="col-xs-6  item " ng-repeat="event in events" >
 
-				      <div ng-click="goToEvent(event.id)" class="flyer-well" style="background-color: #D3D3D3; background-color: {{event.hood}};">
 
-								<h2>{{event.eventname}}</h2>
-								<h4>{{event.username}}</h4><br />
-								<img src="img/{{event.pic}}.png">
-								<h4>{{event.date}}</h4>
-								<p>{{event.description}}</p>
-								<!-- <p><small class="text-muted">Event added on {{event.timeadded | date:"MM/dd 'at' h:mma"}}</small></p> -->
-								<p><small class="text-muted">Expires on {{event.expTime}}</small></p>
-							  </div>
 
-				    </div>
 
-		</div>
+      <div class="flyer-well" ng-click="goToEvent(event.id)"  style="background-color: #D3D3D3; background-color: {{event.hood}};">
+
+				<h2>{{event.eventname}}</h2>
+				<h4>{{event.username}}</h4><br />
+				<img src="img/{{event.pic}}.png">
+				<h4>{{event.date}}</h4>
+				<p>{{event.description}}</p>
+				<!-- <p><small class="text-muted">Event added on {{event.timeadded | date:"MM/dd 'at' h:mma"}}</small></p> -->
+				<p><small class="text-muted">Expires on {{event.expTime}}</small></p>
+			  </div>
+
+    </div>
 	</div>
 
 </div>
+</div>
+
