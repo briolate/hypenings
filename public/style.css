@@ -1,8 +1,5 @@
 /*Redesign additions...*/
-<<<<<<< HEAD
 
-
-=======
 #mapHolder{
   width: 100%;
   margin: auto;
@@ -26,7 +23,6 @@
   margin: auto;
 }
 
->>>>>>> 2a37c3bd89801f722717bb7bde31bbafa3868e7c
 .markerInfo{
   color: black;
 }

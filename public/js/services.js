@@ -90,4 +90,12 @@
 
 });
 
-
+app.service("varShare", function() {
+  var idShare;
+  this.setId = function(id) {
+    idShare = id;
+  }
+  this.getId = function() {
+    return idShare;
+  }
+});

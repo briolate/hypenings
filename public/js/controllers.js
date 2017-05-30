@@ -1,6 +1,6 @@
 var app = angular.module("ourApp");
 
-app.controller("myController", function ($scope, eventService, $location) {
+app.controller("myController", function ($scope, eventService, $location, varShare) {
 	$scope.lat=0;
 	$scope.long=0;
 	$scope.formItem = {};
@@ -11,8 +11,8 @@ app.controller("myController", function ($scope, eventService, $location) {
 	$scope.deleted=false;
 	$scope.timeLeft=0;
 	$scope.times=[];
-	$scope.postIDShow;
-	$scope.userPostid="";
+	$scope.postIDShow="";
+	$scope.userPostid=[];//testing
 	$scope.postToManage=[];
 	$scope.emailCheck = false;
  // getLocation();
@@ -35,11 +35,13 @@ app.controller("myController", function ($scope, eventService, $location) {
 		console.log(item);
 		eventService.addEvent(item).then(function() {
 			console.log($scope.formItem);
-			
+
 			// console.log(item);
 			$scope.submissionSuccess = true;
 		});
+		varShare.setId($scope.formItem.postid);
 		$scope.formItem = {};
+
 		$location.url('submitted');
 
 	}
