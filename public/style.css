@@ -377,10 +377,10 @@ body {
 
 
 /*flyer styles*/
-.flyer-container {
+/*.flyer-container {
   margin-top: 375px;
   overflow: auto;
-}
+}*/
 
 #flyerRow img {
   height: 100px;
