@@ -92,12 +92,11 @@
       </form>
     </div>
 
-    <div style="background-color: {{formItem.hood}};" ng-show="formItem.user || formItem.eventName || formItem.date || formItem.description ||formItem.pic"  class="col-xs-4" id="live-preview">
+    <div id="live-preview"style="background-color: {{formItem.hood}};" ng-show="formItem.user || formItem.eventName || formItem.date || formItem.description ||formItem.pic"  class="col-xs-4" id="live-preview">
         <flyer flyer="formItem"></flyer>
     </div >
 
-
-        <div ng-show="submissionSuccess">It worked! your post ID is <b>{{postIDShow}}</b></div>
+    <div ng-show="submissionSuccess">It worked! your post ID is <b>{{postIDShow}}</b></div>
     </div>
     </div>
 </div>
