@@ -121,6 +121,7 @@ app.controller('mapController', function($scope, eventService, $location) {
                     content: "<div class='markerInfo'>"+marker.title+"<br>"+marker.date+"<br><img class='markerIcons' src='"+ "img/"+marker.pic+".png'></div>"
                   });
                   infowindow.open(map, marker);
+                  console.log('yo');
                 });
               })(marker, i);
               (function(marker, i) {
