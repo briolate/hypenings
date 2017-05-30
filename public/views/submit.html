@@ -1,1 +1,34 @@
-<h1>THANK YOU FOR SUBMITTING YOUR EVENT</h1>
+<div class="container-fluid" ng-controller="myController">
+  <div class="row">
+
+      <div id="successBox" class="col-xs-5">
+
+        <div class="planeCircle">
+        <img src="img/flyingpaperplane.png" class="img-responsive p-plane">
+          </div>
+
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title"><span><img src="img/success.png" class="img-responsive greencheck"></span> Great!</h3>
+            </div>
+
+            <div class="panel-body">
+              <p class="panel-msg">Your event was successfully created.</p>
+            </div>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <p>Your post ID is {{formItem.postid}}.</p>  <!--this post id isn't showing up-->
+              </li>
+
+          </div>
+
+
+
+
+<a href="#!/view1" class="btn btn-md btn-default">Home</a>
+<a href="#!/view2" class="btn btn-md btn-default">Discover Nearby</a>
+<a href="#!/view3" class="btn btn-md btn-default">Create Another Post</a>
+
+  </div>
+  </div>
+</div>

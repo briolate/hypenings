@@ -1,6 +1,7 @@
 
 <div class="container">
-	<div id="mapHolder" class="col-xs-8">
+	<div id="mapHolder" class="col-xs-6">
+		 <h2>Events near you</h2>
 		<div ng-controller="mapController" id="map"></div>
 	</div>
 </div>
@@ -8,30 +9,15 @@
 
 
 
-<div class="container">
- <h2>Events near you</h2>
-<!-- <div class="col-xs-6" ng-controller="myController"> -->
-	<!-- <form ng-submit="searchHood(hood)" class="well">
-		<div class="form-group">
-			<label for="event-hood">Select Nieghborhood:</label>
-			<select ng-change="searchHood()" class="form-control" id="event-hood" ng-model="searchForm.hood">
-				<option>Downtown</option>
-				<option>Cork Town</option>
-				<option>Mid Town</option>
-				<option>West Village</option>
-			</select>
-		</div>
-	</form> -->
-
-
+<div class="container flyer-container">
 
 <div   ng-controller="mapController">
 
 	<div id="flyerRow" class="row">
 
-    <div  class="item" class="col-xs-5" ng-repeat="event in events" >
+    <div class="item" ng-repeat="event in events" >
 
-      <div style="background-color: #D3D3D3; background-color: {{event.hood}};">
+      <div class="flyer-well" style="background-color: #D3D3D3; background-color: {{event.hood}};">
 				<h2>{{event.eventname}}</h2>
 				<h4>{{event.username}}</h4><br />
 				<img src="img/{{event.pic}}.png">
@@ -42,6 +28,7 @@
 			  </div>
 
     </div>
+
   </div>
 </div>
 
