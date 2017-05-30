@@ -1,7 +1,9 @@
 var app = angular.module("ourApp");
 
 app.controller('eventPageController', function($scope,eventService,$location) {
-	var eventId = $location.url().slice(-1);
+	var eventId = $location.url();
+	eventId = eventId.substring(eventId.indexOf('=') + 1, eventId.length);
+	 console.log(eventId);
 
 	eventService.getEventById(eventId).then(function(response) {
 		$scope.viewEvent = response[0];
@@ -22,8 +24,8 @@ app.controller('eventPageController', function($scope,eventService,$location) {
 //initMap() shows our google map and also gets user current location
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 42.3314, lng: -83.0458},
-      zoom: 11,
+      center: {lat: Number($scope.viewEvent.lat), lng: Number($scope.viewEvent.lng)},
+      zoom: 30,
       scrollwheel: false
     });
     infoWindow = new google.maps.InfoWindow;
@@ -47,7 +49,7 @@ app.controller('eventPageController', function($scope,eventService,$location) {
         // infoWindow.open(map);
         // console.log(pos);
         map.setZoom(14);
-        map.setCenter(pos);
+  
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
       });
@@ -65,27 +67,24 @@ app.controller('eventPageController', function($scope,eventService,$location) {
       infoWindow.open(map);
     }
 
-    initMap();
 // getEvents() pulls in events in users area (in this car the one that is selected)
     $scope.getEvents = function() {
       eventService.getEventById(eventId).then(function(response) {
         //this for loop runs a calc to figure out when posts expire and pushes data into the response from the database
-        for (var i = 0;i < response.length; i++) {
-          var timestamp = response[i].timeadded;
+        
+          var timestamp = response[0].timeadded;
           var unix_seconds = ((new Date(timestamp)).getTime());
           var date=Date.now();
           var s=new Date(unix_seconds+172800000);
 
           console.log(s.toLocaleString());
 
-          response[i].expTime = (s.toLocaleString());
-        }
+          response[0].expTime = (s.toLocaleString());
+        
 
+    initMap();
         var eventArr = response;
         $scope.events=response;
-        console.log($scope.lat);
-        console.log(eventArr);
-        console.log($scope.events);
 
 //get's current location to draw a visual radius around the user's marker on the map
         if (navigator.geolocation) {
@@ -122,7 +121,7 @@ app.controller('eventPageController', function($scope,eventService,$location) {
                 title: eventArr[i].eventname,
                 date: eventArr[i].date,
                 hood: eventArr[i].hood,
-                pic: eventArr[i].pic
+                pic: eventArr[i].pic,
               });
 
 
