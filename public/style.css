@@ -368,15 +368,19 @@ body {
 }
 
 
-#live-Preview-Delete-View{
+.live-Preview-Delete-View{
   margin: auto;
   width: 30vw;
-  height: 50vh;
+  height: 40vh;
+}
+#preview-icon{
+  width: 40%;
 }
 
-#live-Preview-Delete-View.#live-preview{
+.live-Preview-Delete-View.#live-preview{
   width: 30vw;
   height: 50vh;
+  margin: auto;
 }
 
 /*MAP STYLING*/
