@@ -17,8 +17,8 @@
               <p class="panel-msg">Your event was successfully created.</p>
             </div>
             <ul class="list-group">
-              <li class="list-group-item">
-                <p>Your post ID is {{formItem.postid}}.</p>  <!--this post id isn't showing up-->
+              <li class="list-group-item" ng-controller="myController">
+                <p>Your post ID is {{postIDShow}}.</p>  <!--this post id isn't showing up-->
               </li>
 
           </div>
@@ -33,4 +33,3 @@
   </div>
   </div>
 </div>
-
