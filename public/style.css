@@ -2,7 +2,8 @@
 #mapHolder{
   width: 100%;
   margin: auto;
-  /*position: fixed;*/
+  position: fixed;
+  z-index: 5;
 
 }
 
@@ -318,8 +319,12 @@ body {
   color: #05386B;
 }
 
-/* Add Event Form Box Style*/
+/* 'Add Event' Form Box Style*/
 #formBox {
+  margin-left: 15%;
+}
+
+#formBox, #successBox {
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 5px;
 }
@@ -342,9 +347,35 @@ body {
   width: auto;
 }
 
+/* LIVE PREVIEW of the the flyer from the 'Add Event' form page*/
+#live-preview {
+  width: 300px;
+  height: auto;
+  border-radius: 5px;
+  overflow-wrap: break-word;
+  padding: 5px;
+  margin: 5px;
+}
+
+
+#live-Preview-Delete-View{
+  margin: auto;
+  width: 30vw;
+  height: 50vh;
+}
+#live-Preview-Delete-View.#live-preview{
+  width: 30vw;
+  height: 50vh;
+}
+
 
 
 /*flyer styles*/
+.flyer-container {
+  margin-top: 375px;
+  overflow: auto;
+}
+
 #flyerRow img {
   height: 100px;
   width: auto;
@@ -355,7 +386,7 @@ body {
  -webkit-column-width: 18em;
  -moz-column-gap: 1em;
  -webkit-column-gap:1em;
- box-sizing:  border-box !important;
+ box-sizing:  border-box;
 }
 
 .item {
@@ -365,21 +396,70 @@ body {
  box-sizing:  border-box;
 }
 
-#flyerRow .well {
- position:relative;
- display: block;
- box-sizing:  border-box;
+.flyer-well {
+  position:relative;
+  display: block;
+  border-radius: 5px;
+  overflow-wrap: break-word;
+  padding: 5px;
+  margin: 5px;
 }
 
-#flyerRow .well, h2{
+#flyerRow .flyer-well h2{
   /*display: inline-block;*/
   text-shadow: none;
   font-family: Helvetica, Sans-Serif;
 }
 
-#flyerRow .well, h2, h4, p{
+#flyerRow .flyer-well h2, h4, p{
   color: black;
 }
+
+/* Successfully submitted box styling except for the successBox ID*/
+
+#successBox {
+  padding: 20px;
+  margin: 0 auto;
+  float: none;
+}
+
+#successBox .panel-title {
+  font-size: 20px;
+}
+
+#successBox .panel-title, .panel-body, .list-group-item {
+  text-align: left;
+
+}
+
+#successBox .greencheck {
+  display: inline-block;
+
+}
+
+
+.planeCircle {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  background-color: #fd8469;
+}
+
+#successBox .planeCircle, .p-plane {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.panel-body, .list-group-item {
+  padding-top: 10px;
+}
+.panel-msg {
+  margin: 0;
+}
+
+
 
 /*.thumbnail, h2{
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -485,6 +565,7 @@ h3 span {
   font-size: 20px;
 }
 
+
 #live-preview {
 }
 
@@ -498,3 +579,4 @@ h3 span {
   width: 30vw;
   height: 50vh;
 }
+

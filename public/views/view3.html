@@ -3,11 +3,11 @@
   <div class="row">
 
 
-    <div id="formBox" class="col-xs-4 col-xs-offset-4">
+    <div id="formBox" class="col-xs-5">
       <h2>Add Event</h2>
       <my-flyer></my-flyer>
-      
-      
+
+
 
       <form ng-submit="addEvent(formItem)">
         <div class="form-group">
@@ -88,21 +88,24 @@
             <option value="tech" >Tech</option>
           </select>
         </div>
-        <button type="submit" href="#!/submit" class="btn btn-lg btn-default" data-toggle="modal" data-target="#postModal">Add Event</button>
+        <button type="submit" href="#!/submit" class="btn btn-lg btn-default">Add Event</button>
       </form>
     </div>
 
 
-    <div style="background-color: {{formItem.hood}};" ng-show="formItem.user || formItem.eventName || formItem.date || formItem.description ||formItem.pic"  class="col-xs-4" id="live-preview">
+
+    <div id="live-preview"style="background-color: {{formItem.hood}};" ng-show="formItem.user || formItem.eventName || formItem.date || formItem.description ||formItem.pic"  class="col-xs-4" id="live-preview">
       <flyer flyer="formItem"></flyer>
   </div >
 
 
-  <div ng-show="submissionSuccess">It worked! your post ID is <b>{{postIDShow}}</b></div>
+
+            <div ng-show="submissionSuccess">It worked! your post ID is <b>{{postIDShow}}</b></div>
+          </div>
+    </div>
 </div>
 
 <a href="mailto:username@example.com?subject=Hypenings%20Event%20Information&body=Your%20post%20ID%20is%20{{postIDShow}}.%20don't%20loose%20it!">mail</a>
-
 
 <!-- <div class="row">
       <div class="col-xs-5" class="container" ng-controller="myController">
