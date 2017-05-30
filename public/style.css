@@ -1,12 +1,43 @@
 /*Redesign additions...*/
+<<<<<<< HEAD
 
 
+=======
+#mapHolder{
+  width: 100%;
+  margin: auto;
+  /*position: fixed;
+  z-index: 5;*/
+}
+
+/*.ng-scope div {
+  width: 100%;
+}*/
+
+.ng-scope .row {
+  margin: 0;
+}
+
+#map {
+  /*float: right;
+  margin-right: 10px;*/
+  height: 50vh;
+  width: 100%;
+  margin: auto;
+}
+
+>>>>>>> 2a37c3bd89801f722717bb7bde31bbafa3868e7c
 .markerInfo{
   color: black;
 }
+
 .markerIcons{
   height: 50px;
   width: auto;
+}
+
+.img-responsive {
+  margin: 0 auto;
 }
 
 #head {
@@ -25,13 +56,20 @@ textarea {
   margin: 40px;
 }
 
-.buttons {
-  padding-top: 40px;
-  padding-bottom: 20px;
+.subhead {
+  padding-top: 20px;
+  font-size: 24px;
 }
 
-.sign-up-button {
-  padding-bottom: 100px;
+@media(max-width:668px) {
+    .subhead {
+        font-size: 18px;
+    }
+}
+
+.buttons {
+  padding-top: 40px;
+  padding-bottom: 160px;
 }
 
 #feat1 {
@@ -61,21 +99,12 @@ textarea {
   padding-bottom: 40px;
 }
 
-.subhead {
+.latest p {
+  color: #EDF5E1;
   font-size: 24px;
-}
-
-.shape {
-  width:100%;
-  margin:0 auto;
-}
-
-.top {
-  height:0;
-  border-width:0 0 60px 400px;
-  border-style:solid;
-  border-color:transparent #fd8469 #fd8469 transparent;
-  opacity: .7;
+  font-weight: bold;
+  letter-spacing: .1em;
+  background-color: #fd8469;
 }
 
 .featurette-text {
@@ -161,9 +190,9 @@ textarea {
 }
 
 @media(max-width:768px) {
-    .feauturette-container {
+    /*.feauturette-container {
         margin: 0 15px;
-    }
+    }*/
 
     .featurette-divider {
         margin: 40px 0;
@@ -175,7 +204,6 @@ textarea {
 }
 
 @media(max-width:668px) {
-
     .featurette-divider {
         margin: 30px 0;
     }
@@ -229,10 +257,10 @@ html {
 
 body {
   /*background-color: #5CDB95;*/
+  width: 100%;
   margin: 0 0 190px;
   background-image: url('/img/bokeh3.jpg');
   height: 100%;
-  background-color: black;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -349,6 +377,7 @@ body {
   width: 30vw;
   height: 50vh;
 }
+
 #live-Preview-Delete-View.#live-preview{
   width: 30vw;
   height: 50vh;
@@ -419,8 +448,8 @@ body {
 
 .item {
  display: inline-block;
- padding:  .25rem;
- width:  100%;
+ padding: .25rem;
+ width: 100%;
  box-sizing:  border-box;
 }
 
@@ -523,18 +552,6 @@ h3 span {
 }*/
 /* end of flyer stlying*/
 
-.masthead a {
-  text-decoration: none;
-}
-
-@media (min-width: 768px) {
-  .masthead-brand {
-    float: left;
-  }
-  .masthead-nav {
-    float: right;
-  }
-}
 
 /*
  * Cover
@@ -564,18 +581,18 @@ h3 span {
  * Footer
  */
 
- footer {
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   width: 100%;
-   height: 190px;
-   background-image: url('img/detroit.png');
-   background-repeat: no-repeat;
-   background-size: cover;
-   color: #999;
-   color: rgba(255,255,255,.5);
- }
+footer {
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ width: 100%;
+ height: 190px;
+ background-image: url('img/detroit.png');
+ background-repeat: no-repeat;
+ background-size: cover;
+ color: #999;
+ color: rgba(255,255,255,.5);
+}
 
 .copyright {
   margin-top: 120px;
@@ -593,17 +610,96 @@ h3 span {
   font-size: 20px;
 }
 
+/*
+Nav bar
+*/
 
-#live-preview {
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #05386B;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
 }
 
-#live-Preview-Delete-View{
-  margin: auto;
-  width: 30vw;
-  height: 50vh;
+.sidenav a {
+  padding: 8px 8px 8px 8px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
 }
 
-#live-Preview-Delete-View.#live-preview{
-  width: 30vw;
-  height: 50vh;
+.sidenav a:hover, .offcanvas a:focus{
+  color: #fd8469;
 }
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#navButton {
+  float: left;
+  padding: 10px 0 0 10px;
+}
+
+/*
+Old nav bar
+*/
+
+/*.masthead a {
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .masthead-brand {
+    float: left;
+  }
+
+.masthead-nav {
+  float: right;
+}
+<<<<<<< HEAD
+=======
+
+.masthead-nav > li,
+.masthead-brand > li {
+  display: inline-block;
+}
+.masthead-nav > li + li,
+.masthead-brand > li + li {
+  margin-left: 20px;
+}
+.masthead-nav > li > a,
+.masthead-brand > li > a {
+  padding-right: 0;
+  padding-left: 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: #EDF5E1;
+}
+
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus,
+.masthead-brand > li > a:hover,
+.masthead-brand > li > a:focus {
+  background-color: transparent;
+  color: #05386B;
+}
+}*/
+>>>>>>> 2a37c3bd89801f722717bb7bde31bbafa3868e7c
