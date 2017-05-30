@@ -17,14 +17,14 @@ app.use(bodyParser.json());
 
 
 var pool = require("./pg-connection-pool");
-// var pool = new pg.Pool({
-//     user: "postgres",
-//     password: "Zambia",
-//     host: "localhost",
-//     port: 5432,
-//     database: "postgres",
-//     ssl: false
-// });
+var pool = new pg.Pool({
+    user: "postgres",
+    password: "Zambia",
+    host: "localhost",
+    port: 5432,
+    database: "postgres",
+    ssl: false
+});
 
 function errorCallback(res) {
     return function(err) {
