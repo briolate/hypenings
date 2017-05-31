@@ -395,6 +395,7 @@ body {
 
 #flyer-right {
   height: 100%;
+  overflow-y: scroll;
 }
 
 #flyerRow img {
