@@ -1,14 +1,3 @@
-
-/*Redesign additions...*/
-
-
-#mapHolder{
-  width: 100%;
-  margin: auto;
-  /*position: fixed;
-  z-index: 5;*/
-}
-
 /*.ng-scope div {
   width: 100%;
 }*/
@@ -348,13 +337,13 @@ body {
 
 #formBox button {
   margin-bottom: 15px;
-
 }
 
 .preview-icon {
   height: 100px;
   width: auto;
 }
+
 
 /* LIVE PREVIEW of the the flyer from the 'Add Event' form page*/
 #live-preview {
@@ -385,18 +374,25 @@ body {
   height: 50vh;
   margin: auto;
 }
+/***********   mobile view for ADD EVENT FORM    *******************/
+@media(max-width: 768px) {
+    #live-preview {
+        margin-left: 15%;
+    }
+}
 
-/*MAP STYLING*/
-#mapHolder {
+/********************   MAP STYLING ***************/
+.mapHolder {
   /*width: 100%;
   margin: auto;*/
   /*position: relative;*/
   z-index: 5;
   position: fixed;
-  width: 35%;
+  width: 40%;
   overflow-y: scroll;
   height: 100%;
   margin-top: 40px;
+  margin-left: 20px;
 }
 
 #map {
@@ -405,9 +401,16 @@ body {
   height: 50vh;
   width: 100%;
   margin: auto;
-
-
 }
+/***********   mobile view for MAP on discover page   *******************/
+@media(max-width: 768px) {
+    .mapHolder {
+        width: 90%;
+        position: relative;
+        z-index: 0;
+    }
+}
+
 
 /*flyer styles*/
 /*.flyer-container {
