@@ -389,7 +389,7 @@ body {
   z-index: 5;
   position: fixed;
   width: 40%;
-  overflow-y: scroll;
+/*  overflow-y: scroll;*/
   height: 100%;
   margin-top: 40px;
   margin-left: 20px;
