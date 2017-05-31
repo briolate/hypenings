@@ -9,7 +9,7 @@ app.controller('mapController', function($scope, eventService, $location) {
 //initMap() shows our google map and also gets user current location
   function initMap() {
 
-    var styledMapType = new google.maps.StyledMapType( 
+    var styledMapType = new google.maps.StyledMapType(
       [{"elementType":"geometry","stylers":[{"hue":"#ff4400"},{"saturation":-68},{"lightness":-4},{"gamma":0.72}]},{"featureType":"road","elementType":"labels.icon"},{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"hue":"#0077ff"},{"gamma":3.1}]},{"featureType":"water","stylers":[{"hue":"#00ccff"},{"gamma":0.44},{"saturation":-33}]},{"featureType":"poi.park","stylers":[{"hue":"#44ff00"},{"saturation":-23}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"hue":"#007fff"},{"gamma":0.77},{"saturation":65},{"lightness":99}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"gamma":0.11},{"weight":5.6},{"saturation":99},{"hue":"#0091ff"},{"lightness":-86}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"lightness":-48},{"hue":"#ff5e00"},{"gamma":1.2},{"saturation":-23}]},{"featureType":"transit","elementType":"labels.text.stroke","stylers":[{"saturation":-64},{"hue":"#ff9100"},{"lightness":16},{"gamma":0.47},{"weight":2.7}]}]
       );
     map = new google.maps.Map(document.getElementById('map'), {
@@ -29,7 +29,7 @@ app.controller('mapController', function($scope, eventService, $location) {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-// adds marker for current location
+        // adds marker for current location
         var marker = new google.maps.Marker({
           position:{lat:position.coords.latitude, lng:position.coords.longitude},
           icon: '../img/blueCir.png',
@@ -62,8 +62,7 @@ app.controller('mapController', function($scope, eventService, $location) {
     }
 
     initMap();
-// getEvents() pulls in events in users area
-
+    // getEvents() pulls in events in users area
     $scope.getEvents = function() {
       eventService.getLocalEvents($scope.lat, $scope.long).then(function(response) {
         //this for loop runs a calc to figure out when posts expire and pushes data into the response from the database
@@ -112,6 +111,7 @@ app.controller('mapController', function($scope, eventService, $location) {
               //   content: contentString
               // });
 
+              //Converts sql date to mm-dd
               function convertDate (date) {
                 var output = "";
                 output = date.substring(5,7) + "-" + date.substring(8,10);

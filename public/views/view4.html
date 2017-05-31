@@ -3,7 +3,7 @@
   <!-- live preview -->
   <div id="live-Preview-Delete-View" ng-hide='deleted' ng-controller='myController' ng-repeat='event in postToManage'>
     <div class="">
-    <p>hello {{event.username}}</p>
+    <p>Hello, {{event.username}}</p>
     </div>
 
     <div style="background-color: {{event.hood}};" ng-show="event.user || event.eventName || event.date || event.description ||event.pic"  class="live-Preview-Delete-View">

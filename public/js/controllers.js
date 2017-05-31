@@ -39,12 +39,16 @@ app.controller("myController", function ($scope, eventService, $location, varSha
 			// console.log(item);
 			$scope.submissionSuccess = true;
 		});
+		//Takes postid and sends it to the 'submitted page'
 		varShare.setId($scope.formItem.postid);
 		$scope.formItem = {};
 
+		//Takes user to 'submitted page'
 		$location.url('submitted');
 
 	}
+
+//Relays user input to the database to see if id exists
 $scope.manageEvent = function(userPostid){
 	console.log(userPostid);
 	eventService.manageEvent(userPostid).then(function(response) {
@@ -65,7 +69,7 @@ $scope.manageEvent = function(userPostid){
 $scope.deleteEvent = function(userPostid){
 	console.log(userPostid);
 	eventService.deleteEvent(userPostid).then(function(response){
-		console.log('DELETED')
+		console.log('DELETED');
 		$scope.deleted=true;
 	})
 }
@@ -78,16 +82,18 @@ $scope.deleteEvent = function(userPostid){
 	// getEvents();
 
 
-	$scope.searchHood = function() {
-		// localEvents();
-		$scope.hoodResults = [];
-		var targetHood = $scope.searchForm.hood;
-		for (var i = 0; i < $scope.events.length; i++) {
-			if ($scope.events[i].hood == targetHood) {
-				$scope.hoodResults.push($scope.events[i]);
-			}
-		}
-	}
+	// $scope.searchHood = function() {
+	// 	// localEvents();
+	// 	$scope.hoodResults = [];
+	// 	var targetHood = $scope.searchForm.hood;
+	// 	for (var i = 0; i < $scope.events.length; i++) {
+	// 		if ($scope.events[i].hood == targetHood) {
+	// 			$scope.hoodResults.push($scope.events[i]);
+	// 		}
+	// 	}
+	// }
+
+	//Runs on page load to get users location
 	getLocation();
 	function getLocation () {
 
