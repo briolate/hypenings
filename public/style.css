@@ -1,8 +1,12 @@
-
-
 /*.ng-scope div {
   width: 100%;
 }*/
+
+
+.ng-scope .row {
+  margin: 0;
+}
+
 
 .markerInfo{
   color: black;
@@ -47,7 +51,6 @@ textarea {
 .buttons {
   padding-top: 40px;
   padding-bottom: 160px;
-  margin-top: 5px;
 }
 
 #feat1 {
@@ -88,17 +91,6 @@ textarea {
 .featurette-image {
   padding-top: 40px;
   padding-bottom: 40px;
-}
-
-.ng-scope .row-fluid {
-  margin: 0 auto;
-}
-
-.latest-item {
-  display: inline-block;
-  float: none;
-  width: 300px;
-  overflow: auto;
 }
 
 .latest p {
@@ -379,16 +371,21 @@ body {
 
 
 #live-Preview-Delete-View {
+
   margin: auto;
   width: 30vw;
-  height: 50vh;
+  height: 40vh;
+}
+#preview-icon{
+  width: 40%;
 }
 
 
+#live-Preview-Delete-View.#live-preview {
 
-#live-Preview-Delete-View.#live-preview{
   width: 30vw;
   height: 50vh;
+  margin: auto;
 }
 /***********   mobile view for ADD EVENT FORM    *******************/
 @media(max-width: 768px) {
@@ -428,7 +425,7 @@ body {
 }
 
 
-/*flyer styles*/
+/**************   flyer styles VIEW 2 ************/
 /*.flyer-container {
   margin-top: 375px;
   overflow: auto;
