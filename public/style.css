@@ -63,6 +63,19 @@ textarea {
   background-attachment: fixed;
 }
 
+#feat1 img {
+  padding: 8%;
+}
+
+#feat2 img {
+  padding: 8%;
+}
+#feat3 img {
+  padding: 8%;
+  border-radius: 0;
+}
+
+
 #feat2 {
   background-image: url('img/feature2.jpeg');
   background-repeat: no-repeat;
@@ -383,7 +396,7 @@ body {
   z-index: 5;
   position: fixed;
   width: 40%;
-  overflow-y: scroll;
+  /*overflow-y: scroll;*/
   height: 100%;
   margin-top: 40px;
   margin-left: 20px;
