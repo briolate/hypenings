@@ -16,22 +16,22 @@
 </div>
 
 <!-- Most recent row -->
-<div class="row">
-    <div ng-click="goToEvent(recentEvents[0].id)" class="col-xs-4" style="background-color: #D3D3D3; background-color: {{recentEvents[0].hood}};">
+<div class="row-fluid">
+    <div ng-click="goToEvent(recentEvents[0].id)" class="col-xs-4 latest-item" style="background-color: #D3D3D3; background-color: {{recentEvents[0].hood}};">
         <h2>{{recentEvents[0].eventname}}</h2>
         <h4>{{recentEvents[0].username}}</h4><br />
         <img class="preview-icon" src="img/{{recentEvents[0].pic}}.png">
         <h4>{{recentEvents[0].date | date:'MM-dd-yyyy'}}</h4>
         <p>{{recentEvents[0].description}}</p>
     </div>
-   <div ng-click="goToEvent(recentEvents[1].id)" class="col-xs-4" style="background-color: #D3D3D3; background-color: {{recentEvents[1].hood}};">
+   <div ng-click="goToEvent(recentEvents[1].id)" class="col-xs-4 latest-item" style="background-color: #D3D3D3; background-color: {{recentEvents[1].hood}};">
         <h2>{{recentEvents[1].eventname}}</h2>
         <h4>{{recentEvents[1].username}}</h4><br />
         <img class="preview-icon" src="img/{{recentEvents[1].pic}}.png">
         <h4>{{recentEvents[1].date | date:'MM-dd-yyyy'}}</h4>
         <p>{{recentEvents[1].description}}</p>
     </div>
-    <div ng-click="goToEvent(recentEvents[2].id)" class="col-xs-4" style="background-color: #D3D3D3; background-color: {{recentEvents[2].hood}};">
+    <div ng-click="goToEvent(recentEvents[2].id)" class="col-xs-4 latest-item" style="background-color: #D3D3D3; background-color: {{recentEvents[2].hood}};">
         <h2>{{recentEvents[2].eventname}}</h2>
         <h4>{{recentEvents[2].username}}</h4><br />
         <img class="preview-icon" src="img/{{recentEvents[2].pic}}.png">
@@ -49,7 +49,7 @@
     <!-- <hr class="featurette-divider"> -->
 
     <div class="featurette" id="feat1">
-        <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
+        <img class="featurette-image img-circle img-responsive pull-right" src="img/binoculars-1.png">
         <div class="featurette-text">
           <h2 class="featurette-heading">FIND
               <span class="text-muted">AND BE FOUND</span>
@@ -64,7 +64,7 @@
 
     <!-- Second Featurette -->
     <div class="featurette" id="feat2">
-        <img class="featurette-image img-circle img-responsive pull-left" src="http://placehold.it/500x500">
+        <img class="featurette-image img-circle img-responsive pull-left" src="img/cityscape.png">
         <div class="featurette-text2">
           <h2 class="featurette-heading">EXPLORE
               <span class="text-muted">YOUR CITY</span>
@@ -79,7 +79,7 @@
 
     <!-- Third Featurette -->
     <div class="featurette" id="feat3">
-        <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
+        <img class="featurette-image img-circle img-responsive pull-right" src="img/map.png">
         <div class="featurette-text">
           <h2 class="featurette-heading">SO...<br>
               <span class="text-muted">GET OUT THERE!</span>
