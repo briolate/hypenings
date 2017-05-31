@@ -1,9 +1,7 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
 /*Redesign additions...*/
 
->>>>>>> 09f6e6c8716547951313de10f5affce496a4cee6
+
 #mapHolder{
   width: 100%;
   margin: auto;
@@ -14,9 +12,7 @@
 /*.ng-scope div {
   width: 100%;
 }*/
-=======
-/*Redesign additions...*/
->>>>>>> c1b88f15b5bd343f67be2145e446b883caf3f0c4
+
 
 .ng-scope .row {
   margin: 0;
@@ -671,13 +667,11 @@ Nav bar
 #navButton {
   float: left;
   padding: 10px 0 0 10px;
-<<<<<<< HEAD
+
   display: block;
   position: fixed;
   z-index: 1;
-=======
-  position: fixed;
->>>>>>> c1b88f15b5bd343f67be2145e446b883caf3f0c4
+
 }
 
 /*
