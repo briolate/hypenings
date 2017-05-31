@@ -5,7 +5,7 @@
 		<label><i class="fa fa-search" aria-hidden="true"></i></label><input style="color: black;"id="search" type="text" ng-model="searchInput">
 	</div>
 
-	
+
 	<span  class="item" ng-repeat="event in searchEvents | filter: searchInput | limitTo: 10" ng-show="searchInput">
 			<div style="float: none; margin: 0 auto; background-color: #D3D3D3; background-color: {{event.hood}};" class="col-offset-md-3 col-md-6" ng-click="goToEvent(event.id)">
 				<h2>{{event.eventname}}</h2>
@@ -15,6 +15,6 @@
 				<p>{{event.description}}</p>
 			</div>
 
-		</span>
-	
+	</span>
+
 </div>
