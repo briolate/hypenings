@@ -22,10 +22,10 @@ app.config(function($routeProvider) {
     }).when('/view4', {
       templateUrl: 'views/view4.html',
       controller: 'myController'
-    })
-
-
-    .when('/search', {
+    }).when('/deleted',{
+      templateUrl: 'views/deleted.html',
+      controller: 'myController'
+    }).when('/search', {
       templateUrl: 'views/search.html',
       controller: 'searchController'
     })

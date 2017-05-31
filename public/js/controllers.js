@@ -71,6 +71,7 @@ $scope.deleteEvent = function(userPostid){
 	eventService.deleteEvent(userPostid).then(function(response){
 		console.log('DELETED');
 		$scope.deleted=true;
+		$location.path('/deleted')
 	})
 }
 	// function getEvents () {
