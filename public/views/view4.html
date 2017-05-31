@@ -36,23 +36,13 @@
         <h2>Delete your event?</h2>
         <form ng-submit="deleteEvent(userPostid)">
           <div class="form-group">
-          
-            
+
+
           </div>
 
-          <div id="live-Preview-Delete-View" ng-hide='deleted' ng-controller='myController' ng-repeat='event in postToManage'>
-  
 
-    <div style="background-color: {{event.hood}};" ng-show="event.user || event.eventName || event.date || event.description ||event.pic"  class="live-Preview-Delete-View">
-      <h2>{{event.eventname}}</h2>
-      <h2>{{event.user}}</h2>
-      <img class="preview-icon" src="img/{{event.pic}}.png">
-      <h4>{{event.date | date:'MM-dd-yyyy'}}</h4>
-      <p>{{event.description}}</p>
-    </div>
+        <button type="submit" ng-click="deleteEvent()" class="btn btn-lg btn-default">Delete Event</button>
 
-          <button type="submit" style="margin-top: 30px" class="btn btn-lg btn-default">Delete Event</button>
-  </div>
         </form>
       </div></div>
     </div>
