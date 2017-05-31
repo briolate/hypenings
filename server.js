@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 // var pool = require("./pg-connection-pool");
 var pool = new pg.Pool({
     user: "postgres",
-    password: "Zambia",
+    password: "quentin",
     host: "localhost",
     port: 5432,
     database: "postgres",
@@ -150,7 +150,7 @@ app.delete('/deletepost', function(req, res) {
 
 
 
-//heroku port or localhost 
+//heroku port or localhost
 var port = process.env.PORT || 5000;
 app.listen(port, function () {
     console.log('JSON Server is running on ' + port);
