@@ -9,7 +9,7 @@
     <div style="background-color: {{event.hood}};" ng-show="event.user || event.eventName || event.date || event.description ||event.pic"  class="live-Preview-Delete-View">
       <h2>{{event.eventName}}</h2>
       <h2>{{event.user}}</h2>
-      <img id="preview-icon" src="img/{{event.pic}}.png">
+      <img class="preview-icon" src="img/{{event.pic}}.png">
       <h4>{{event.date | date:'MM-dd-yyyy'}}</h4>
       <p>{{event.description}}</p>
     </div>

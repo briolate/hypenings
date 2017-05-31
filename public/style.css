@@ -1,16 +1,9 @@
 
-/*Redesign additions...*/
-
-#mapHolder{
-  width: 100%;
-  margin: auto;
-  /*position: fixed;
-  z-index: 5;*/
-}
 
 /*.ng-scope div {
   width: 100%;
 }*/
+
 
 .ng-scope .row {
   margin: 0;
@@ -197,14 +190,15 @@ textarea {
     .featurette-divider {
         margin: 30px 0;
     }
-    .featurette-text, .featurette-text2 {
-        width: 250px;
-    }
 }
 
 @media(max-width:375px) {
     .featurette-divider {
         margin: 10px 0;
+    }
+
+    .featurette-text, .featurette-text2 {
+        width: 250px;
     }
 
     .featurette-image {
@@ -265,12 +259,11 @@ body {
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 
 .cover-container {
-  /*background-image: url('img/skyline1.png');*/
   background-repeat: no-repeat;
   background-position:left bottom;
   background-size: contain;
   bottom: 0;
-  /*background-attachment: fixed;*/
+  padding-top: 40px;
 }
 
 /* Padding for spacing */
@@ -346,13 +339,13 @@ body {
 
 #formBox button {
   margin-bottom: 15px;
-
 }
 
 .preview-icon {
   height: 100px;
   width: auto;
 }
+
 
 /* LIVE PREVIEW of the the flyer from the 'Add Event' form page*/
 #live-preview {
@@ -367,36 +360,36 @@ body {
 
 
 #live-Preview-Delete-View {
-
   margin: auto;
-  width: 30vw;
-  height: 40vh;
-}
-#preview-icon{
-  width: 40%;
-}
-
-<<<<<<< HEAD
-.live-Preview-Delete-View.#live-preview{
-=======
-#live-Preview-Delete-View.#live-preview {
->>>>>>> c3f42a81fac14378387d1f8d5d3bcea690ef1ab0
   width: 30vw;
   height: 50vh;
-  margin: auto;
 }
 
-/*MAP STYLING*/
-#mapHolder {
+
+
+#live-Preview-Delete-View.#live-preview{
+  width: 30vw;
+  height: 50vh;
+}
+/***********   mobile view for ADD EVENT FORM    *******************/
+@media(max-width: 768px) {
+    #live-preview {
+        margin-left: 15%;
+    }
+}
+
+/********************   MAP STYLING ***************/
+.mapHolder {
   /*width: 100%;
   margin: auto;*/
   /*position: relative;*/
   z-index: 5;
   position: fixed;
-  width: 35%;
+  width: 40%;
   overflow-y: scroll;
   height: 100%;
   margin-top: 40px;
+  margin-left: 20px;
 }
 
 #map {
@@ -405,9 +398,16 @@ body {
   height: 50vh;
   width: 100%;
   margin: auto;
-
-
 }
+/***********   mobile view for MAP on discover page   *******************/
+@media(max-width: 768px) {
+    .mapHolder {
+        width: 90%;
+        position: relative;
+        z-index: 0;
+    }
+}
+
 
 /*flyer styles*/
 /*.flyer-container {
@@ -417,9 +417,11 @@ body {
 #map-flyer-container {
   overflow: auto;
   height:100%;
+
   padding: 0;
   margin-left: 0;
   margin-top: 30px;
+
 }
 
 
@@ -669,6 +671,7 @@ Nav bar
   display: block;
   position: fixed;
   z-index: 1;
+
 }
 
 /*
