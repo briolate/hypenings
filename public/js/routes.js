@@ -17,7 +17,7 @@ app.config(function($routeProvider) {
 
     }).when('/submitted', {
       templateUrl: 'views/submit.html',
-
+      controller: 'myController'
 
     }).when('/view4', {
       templateUrl: 'views/view4.html',
@@ -36,5 +36,5 @@ app.config(function($routeProvider) {
     })
 
     .otherwise('/view1');
-    
+
   });

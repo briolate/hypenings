@@ -2,12 +2,15 @@
 
   <!-- live preview -->
   <div id="live-Preview-Delete-View" ng-hide='deleted' ng-controller='myController' ng-repeat='event in postToManage'>
+    <div class="">
     <p>hello {{event.username}}</p>
-    <div style="background-color: {{event.hood}};" ng-show="event.user || event.eventName || event.date || event.description ||event.pic"  id="live-preview">
+    </div>
+
+    <div style="background-color: {{event.hood}};" ng-show="event.user || event.eventName || event.date || event.description ||event.pic"  class="live-Preview-Delete-View">
       <h2>{{event.eventName}}</h2>
       <h2>{{event.user}}</h2>
       <img id="preview-icon" src="img/{{event.pic}}.png">
-      <h4>{{event.date}}</h4>
+      <h4>{{event.date | date:'MM-dd-yyyy'}}</h4>
       <p>{{event.description}}</p>
     </div>
   </div>
