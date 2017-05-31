@@ -1,3 +1,5 @@
+
+
 /*.ng-scope div {
   width: 100%;
 }*/
@@ -377,21 +379,16 @@ body {
 
 
 #live-Preview-Delete-View {
-
   margin: auto;
-  width: 30vw;
-  height: 40vh;
-}
-#preview-icon{
-  width: 40%;
-}
-
-
-#live-Preview-Delete-View.#live-preview {
-
   width: 30vw;
   height: 50vh;
-  margin: auto;
+}
+
+
+
+#live-Preview-Delete-View.#live-preview{
+  width: 30vw;
+  height: 50vh;
 }
 /***********   mobile view for ADD EVENT FORM    *******************/
 @media(max-width: 768px) {

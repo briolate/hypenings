@@ -112,12 +112,17 @@ app.controller('mapController', function($scope, eventService, $location) {
               //   content: contentString
               // });
 
-
+              function convertDate (date) {
+                var output = "";
+                output = date.substring(5,7) + "-" + date.substring(8,10);
+                return output;
+              }
               var marker = new google.maps.Marker({
                 position: { lat:Number(eventArr[i].lat), lng:Number(eventArr[i].lng) },
                 map:map,
                 title: eventArr[i].eventname,
                 date: eventArr[i].date,
+                dateEnd: eventArr[i].expTime,
                 hood: eventArr[i].hood,
                 pic: eventArr[i].pic
               });
@@ -127,7 +132,7 @@ app.controller('mapController', function($scope, eventService, $location) {
               (function(marker, i) {
                 google.maps.event.addListener(marker, 'mouseover', function() {
                   infowindow = new google.maps.InfoWindow({
-                    content: "<div class='markerInfo'>"+marker.title+"<br>"+marker.date+"<br><img class='markerIcons' src='"+ "img/"+marker.pic+".png'></div>"
+                    content: "<div class='markerInfo'>"+marker.title+ "<br> <b>starts</b><br> " + convertDate(marker.date)+ "<br><b>expires at</b><br> " + marker.dateEnd +"<br><img class='markerIcons' src='"+ "img/"+marker.pic+".png'></div>"
                   });
                   infowindow.open(map, marker);
                   console.log('yo');
