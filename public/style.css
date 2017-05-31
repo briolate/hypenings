@@ -2,12 +2,6 @@
   width: 100%;
 }*/
 
-
-.ng-scope .row {
-  margin: 0;
-}
-
-
 .markerInfo{
   color: black;
 }
@@ -51,6 +45,7 @@ textarea {
 .buttons {
   padding-top: 40px;
   padding-bottom: 160px;
+  margin-top: 5px;
 }
 
 #feat1 {
@@ -91,6 +86,17 @@ textarea {
 .featurette-image {
   padding-top: 40px;
   padding-bottom: 40px;
+}
+
+.ng-scope .row-fluid {
+  margin: 0 auto;
+}
+
+.latest-item {
+  display: inline-block;
+  float: none;
+  width: 300px;
+  overflow: auto;
 }
 
 .latest p {
