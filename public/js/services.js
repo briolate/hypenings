@@ -52,7 +52,7 @@
 
     // get event with postid
     this.manageEvent = function(userPostid){
-      var promise =$http({
+      var promise = $http({
         method: 'GET',
         url:'/managepost?postid=' + userPostid
       }).then(function successCallback(response){

@@ -16,6 +16,7 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 
 //pg connection for heroku
+
 // var pool = require("./pg-connection-pool");
 var pool = new pg.Pool({
     user: "postgres",
@@ -25,6 +26,7 @@ var pool = new pg.Pool({
     database: "postgres",
     ssl: false
 });
+
 
 function errorCallback(res) {
     return function(err) {
