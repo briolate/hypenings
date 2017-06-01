@@ -1,15 +1,15 @@
 var app=angular.module('ourApp', ['ngRoute'])
 app.config(function($routeProvider) {
-    $routeProvider.when('/view1', {
+    $routeProvider.when('/home', {
       templateUrl: 'views/view1.html',
       controller: 'myController'
 
     })
-    .when('/view2', {
+    .when('/viewmap', {
       templateUrl: 'views/view2.html',
       controller: 'myController'
 
-    }).when('/view3', {
+    }).when('/addevent', {
       templateUrl: 'views/view3.html'
 
     }).when('/register', {
@@ -19,7 +19,7 @@ app.config(function($routeProvider) {
       templateUrl: 'views/submit.html',
       controller: 'myController'
 
-    }).when('/view4', {
+    }).when('/manage', {
       templateUrl: 'views/view4.html',
       controller: 'myController'
     }).when('/deleted',{
@@ -35,6 +35,6 @@ app.config(function($routeProvider) {
       controller: 'eventPageController'
     })
 
-    .otherwise('/view1');
+    .otherwise('/home');
 
   });
