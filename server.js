@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 // var pool = require("./pg-connection-pool");
 var pool = new pg.Pool({
     user: "postgres",
-    password: "quentin",
+    password: "2o7t9j2sql",
     host: "localhost",
     port: 5432,
     database: "postgres",
