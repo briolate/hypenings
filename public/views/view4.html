@@ -30,18 +30,14 @@
         </form>
       </div>
       <!--delete confirm  -->
-      <div ng-show="submissionSuccess">  <div id="formBox" style="float: none; margin: 0 auto;margin-top: 85px" class="col-xs-10 col-md-6">
-        <h2>Delete your event?</h2>
-        <form ng-submit="deleteEvent(userPostid)">
-          <div class="form-group">
-
-
-          </div>
-
-
-        <button type="submit" ng-click="deleteEvent()" class="btn btn-lg btn-default">Delete Event</button>
-
-        </form>
-      </div></div>
+      <div ng-show="submissionSuccess">
+        <div id="formBox" style="float: none; margin: 0 auto;margin-top: 85px" class="col-xs-10 col-md-6">
+          <h2>Delete your event?</h2>
+          <form ng-submit="deleteEvent(userPostid)">
+            <div class="form-group"></div>
+            <button type="submit" ng-click="deleteEvent()" class="btn btn-lg btn-default">Delete Event</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
